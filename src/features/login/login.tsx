@@ -1,5 +1,10 @@
+import { LoginForm } from "./components";
 import "./styles.css";
 
 export const Login = () => {
-  return <h1>Login Working!!!</h1>;
+  return (
+    <section className="login__container">
+      <LoginForm />
+    </section>
+  );
 };
