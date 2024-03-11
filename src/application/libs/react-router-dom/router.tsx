@@ -3,7 +3,7 @@ import { RouteObject, createBrowserRouter } from "react-router-dom";
 
 const routes: RouteObject[] = [
   {
-    path: "/",
+    path: "/login",
     element: <Login />,
   },
 ];
