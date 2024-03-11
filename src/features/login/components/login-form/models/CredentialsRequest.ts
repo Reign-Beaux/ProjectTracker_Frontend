@@ -1,9 +1,9 @@
 export interface CredentialsRequest {
-  contract: string;
+  user: string;
   password: string;
 }
 
 export const credentialsRequestEmpty: CredentialsRequest = {
-  contract: "",
+  user: "",
   password: "",
 }

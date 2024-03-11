@@ -13,7 +13,7 @@ export const useFormSettings = ({ sendCredentials }: useFormSettingsProps) => {
   const initialValues: FormValues = { ...credentialsRequestEmpty };
 
   const validationSchema = Yup.object({
-    contract: Yup.string().required("El Usuario es un campo requerido."),
+    user: Yup.string().required("El Usuario es un campo requerido."),
     password: Yup.string().required("La Contraseña es un campo requerido."),
   });
 
