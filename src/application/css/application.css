@@ -2,7 +2,11 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-body,
+body {
+  margin: 0;
+  background-color: var(--background);
+}
+
 h1 {
   margin: 0;
 }
