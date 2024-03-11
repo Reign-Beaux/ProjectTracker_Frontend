@@ -14,6 +14,10 @@
   --input-caret-color: hsl(0, 2%, 23%);
   --input-color: hsl(0, 0%, 20%);
   --input-color-focused: hsl(0, 0%, 10%);
+
+  
+  --error: hsl(0, 100%, 40%);
+  --error-hover: hsl(0, 20%, 1%);
 }
 
 .color-blue-1 {

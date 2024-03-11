@@ -71,4 +71,5 @@
 
 .input__error {
   user-select: none;
+  color: var(--error);
 }
