@@ -19,6 +19,7 @@ const iconMapper: Record<string, ReactNode> = {
   FullScreenExit: <i className="bi bi-fullscreen-exit icons"></i>,
   Hamburger: <i className="bi bi-list"></i>,
   Info: <i className="bi bi-info-circle"></i>,
+  Login: <i className="bi bi-box-arrow-in-right"></i>,
   Logout: <i className="bi bi-box-arrow-left icons"></i>,
   Minus: <i className="bi bi-dash-lg icons"></i>,
   Plus: <i className="bi bi-plus-lg icons"></i>,

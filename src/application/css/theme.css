@@ -1,5 +1,24 @@
 :root {
   --background: hsl(0, 0%, 100%);
-  
+
+  --blue-1: hsl(210, 100%, 40%);
+  --blue-1-hover: hsl(210, 100%, 50%);
+  --blue-1-active: hsl(210, 100%, 60%);
+
+  --white-1: hsl(0, 0%, 100%);
+
   --card-shadow: hsla(0, 0%, 0%, 0.2);
+}
+
+.color-blue-1 {
+  background-color: var(--blue-1);
+  color: var(--white-1);
+}
+
+.color-blue-1.button:hover {
+  background-color: var(--blue-1-hover);
+}
+
+.color-blue-1.button:active {
+  background-color: var(--blue-1-active);
 }

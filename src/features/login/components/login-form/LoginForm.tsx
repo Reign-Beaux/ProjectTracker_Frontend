@@ -7,10 +7,11 @@ export const LoginForm = () => {
   const formSettings = useLoginFormHandler();
 
   return (
-    <Card className="login__form">
+    <Card className="login__card">
+      <h1 style={{ margin: "1rem 0" }}>Iniciar Sesión</h1>
       <form onSubmit={formSettings.handleSubmit}>
-        <fieldset className="login-form-fieldset">
-          <legend className="login-form-legend">Ingrese sus credenciales</legend>
+        <fieldset className="login__form--fieldset">
+          <legend>Ingrese sus credenciales</legend>
           <Input
             isClearable
             inputText="Usuario (contrato)"
@@ -24,7 +25,10 @@ export const LoginForm = () => {
             formSettings={formSettings}
           />
         </fieldset>
-        <Button className="login-form-button" type="submit" isLoading={formSettings.isSubmitting}>
+        <Button
+          className="login__card--button color-blue-1 button"
+          type="submit"
+          isLoading={formSettings.isSubmitting}>
           Iniciar Sesión
         </Button>
       </form>

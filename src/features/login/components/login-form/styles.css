@@ -1,2 +1,14 @@
-.login__form {
+.login__card {
+  width: 50%;
+  max-width: 31.25rem;
+}
+
+.login__form--fieldset {
+  border-radius: 0.625rem;
+}
+
+.login__card--button {
+  margin-top: 0.9375rem;
+  margin-bottom: 0.9375rem;
+  width: 100%;  
 }
