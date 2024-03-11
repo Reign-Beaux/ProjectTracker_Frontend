@@ -1,3 +1,5 @@
 :root {
   --background: hsl(0, 0%, 100%);
+  
+  --card-shadow: hsla(0, 0%, 0%, 0.2);
 }
