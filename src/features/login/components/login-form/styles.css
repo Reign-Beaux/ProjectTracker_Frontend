@@ -1,6 +1,7 @@
 .login__card {
   width: 50%;
   max-width: 31.25rem;
+  background-color: var(--white-1);
 }
 
 .login__form--fieldset {

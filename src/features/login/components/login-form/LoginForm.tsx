@@ -8,13 +8,13 @@ export const LoginForm = () => {
 
   return (
     <Card className="login__card">
-      <h1 style={{ margin: "1rem 0" }}>Iniciar Sesión</h1>
+      <div style={{textAlign: "center"}}><h1 style={{ margin: "1rem 0" }}>Iniciar Sesión</h1></div>
       <form onSubmit={formSettings.handleSubmit}>
         <fieldset className="login__form--fieldset">
           <legend>Ingrese sus credenciales</legend>
           <Input
             isClearable
-            inputText="Usuario (contrato)"
+            inputText="Usuario"
             inputName="contract"
             formSettings={formSettings}
           />

@@ -9,14 +9,14 @@
   font-family: inherit;
   width: 100%;
   border: 0;
-  border-bottom: 2px solid var(--mu-text);
+  border-bottom: 2px solid var(--input-border-bottom);
   outline: 0;
   font-size: 1.3rem;
-  color: var(--mu-text);
+  color: var(--input-color);
   padding: 7px 0;
   background: transparent;
   transition: border-color 0.2s;
-  caret-color: var(--mu-text);
+  caret-color: var(--input-caret-color);
   margin-bottom: 3px;
 }
 
@@ -36,8 +36,9 @@
   display: block;
   transition: 0.2s;
   font-size: 1rem;
-  color: var(--mu-text);
+  color: var(--input-color);
   pointer-events: none;
+  user-select: none;
 }
 
 .input__field:focus ~ .input__label {
@@ -46,12 +47,12 @@
   display: block;
   transition: 0.2s;
   font-size: 1rem;
-  color: var(--mu-text-soft);
+  color: var(--input-color-focused);
 }
 
 .input__field:focus {
   border-width: 3px;
-  border-bottom: 2px solid var(--mu-text-soft);
+  border-bottom: 2px solid var(--input-border-bottom);
   border-image-slice: 1;
 }
 
@@ -65,5 +66,9 @@
   transform: translate(-30px, 10px);
   background: none;
   border: none;
-  cursor: pointer;  
+  cursor: pointer;
+}
+
+.input__error {
+  user-select: none;
 }

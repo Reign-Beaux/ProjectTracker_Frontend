@@ -1,5 +1,5 @@
 :root {
-  --background: hsl(0, 0%, 100%);
+  --background: hsl(0, 0%, 90%);
 
   --blue-1: hsl(210, 100%, 40%);
   --blue-1-hover: hsl(210, 100%, 50%);
@@ -8,6 +8,12 @@
   --white-1: hsl(0, 0%, 100%);
 
   --card-shadow: hsla(0, 0%, 0%, 0.2);
+
+  --input-background-color: transparent;
+  --input-border-bottom: hsl(0, 2%, 23%);
+  --input-caret-color: hsl(0, 2%, 23%);
+  --input-color: hsl(0, 0%, 20%);
+  --input-color-focused: hsl(0, 0%, 10%);
 }
 
 .color-blue-1 {
@@ -22,3 +28,4 @@
 .color-blue-1.button:active {
   background-color: var(--blue-1-active);
 }
+
