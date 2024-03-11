@@ -36,11 +36,11 @@ export const Input = ({
   };
 
   return (
-    <div className="form__group">
+    <div className="input__group">
       <input
         id={inputName}
         type={typeInput}
-        className="form__field"
+        className="input__field"
         value={values![inputName]}
         placeholder={inputText}
         onChange={handleChange}
@@ -48,23 +48,15 @@ export const Input = ({
         autoComplete="off"
         {...props}
       />
-      {isPassword ? (
-        <button type="button" className="clear-icon" onClick={handleToggleShowPassword}>
-          <Icon name={showPassword ? "VisibilityOff" : "VisibilityOn"} />
-        </button>
-      ) : (
-        <button
-          type="button"
-          className="clear-icon"
-          onClick={handleClearClick}
-          style={!(isClearable && !!values[inputName]) ? { display: "none" } : {}}>
-          <Icon name="Close" />
-        </button>
-      )}
-      <label htmlFor={inputName} className="form__label">
+      <Icon
+        name={isPassword ? (showPassword ? "VisibilityOff" : "VisibilityOn") : "Close"}
+        className="input__action animation-heartbeat"
+        onClick={isPassword ? handleToggleShowPassword : handleClearClick}
+      />
+      <label htmlFor={inputName} className="input__label">
         {inputText}
       </label>
-      <span style={{ color: "var(--mu-error)", marginTop: "5px" }}>
+      <span className="input__error">
         {touched[inputName] && !!errors[inputName] ? errors[inputName]?.toString() : ""}
       </span>
     </div>

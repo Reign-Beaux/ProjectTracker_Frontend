@@ -1,0 +1,75 @@
+.animation-heartbeat {
+  -webkit-animation: heartbeat 1.5s ease-in-out infinite both;
+  animation: heartbeat 1.5s ease-in-out infinite both;  
+}
+
+@-webkit-keyframes heartbeat {
+  from {
+    -webkit-transform: translate(-30px, 10px) scale(1);
+    transform: translate(-30px, 10px) scale(1);
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  10% {
+    -webkit-transform: translate(-30px, 10px) scale(0.70);
+    transform: translate(-30px, 10px) scale(0.70);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  17% {
+    -webkit-transform: translate(-30px, 10px) scale(1);
+    transform: translate(-30px, 10px) scale(1);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  33% {
+    -webkit-transform: translate(-30px, 10px) scale(0.70);
+    transform: translate(-30px, 10px) scale(0.70);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  45% {
+    -webkit-transform: translate(-30px, 10px) scale(1);
+    transform: translate(-30px, 10px) scale(1);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+}
+
+@keyframes heartbeat {
+  from {
+    -webkit-transform: translate(-30px, 10px) scale(1);
+    transform: translate(-30px, 10px) scale(1);
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  
+  10% {
+    -webkit-transform: translate(-30px, 10px) scale(0.70);
+    transform: translate(-30px, 10px) scale(0.70);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  17% {
+    -webkit-transform: translate(-30px, 10px) scale(1);
+    transform: translate(-30px, 10px) scale(1);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  33% {
+    -webkit-transform: translate(-30px, 10px) scale(0.70);
+    transform: translate(-30px, 10px) scale(0.70);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  45% {
+    -webkit-transform: translate(-30px, 10px) scale(1);
+    transform: translate(-30px, 10px) scale(1);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+}
