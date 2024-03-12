@@ -14,7 +14,12 @@ export const LoginForm = () => {
       <form onSubmit={formSettings.handleSubmit}>
         <fieldset className="login__form--fieldset">
           <legend>Ingrese sus credenciales</legend>
-          <Input isClearable inputText="Usuario" inputName="user" formSettings={formSettings} />
+          <Input
+            isClearable
+            inputText="Usuario o Correo electrónico"
+            inputName="usernameOrEmail"
+            formSettings={formSettings}
+          />
           <Input
             isPassword
             inputText="Contraseña"

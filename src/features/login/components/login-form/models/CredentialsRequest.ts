@@ -1,9 +1,9 @@
 export interface CredentialsRequest {
-  user: string;
+  usernameOrEmail: string;
   password: string;
 }
 
 export const credentialsRequestEmpty: CredentialsRequest = {
-  user: "",
+  usernameOrEmail: "",
   password: "",
 }
