@@ -15,10 +15,7 @@
     "jsx": "react-jsx",
     "paths": {      
       "components/*": ["./src/application/components/*"],
-      "css/*": ["./src/application/css/*"],
       "libs/*": ["./src/application/libs/*"],
-      "models/*": ["./src/application/models/*"],
-      "static/*": ["./src/application/static/*"],
       "utils/*": ["./src/application/utils/*"],
       "@/*": ["./src/*"]
     },
