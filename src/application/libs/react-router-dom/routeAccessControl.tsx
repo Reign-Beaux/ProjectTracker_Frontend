@@ -1,9 +1,9 @@
 import { ReactNode } from "react";
 
 interface RouteAccessControlProps {
-  element: ReactNode;
+  component: ReactNode;
 }
 
-export const RouteAccessControl = ({ element }: RouteAccessControlProps) => {
-  return <>{ element }</>;
-}
+export const RouteAccessControl = ({ component }: RouteAccessControlProps) => {
+  return <>{component}</>;
+};

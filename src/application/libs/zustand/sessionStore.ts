@@ -1,12 +1,13 @@
-import { get } from "utils/helpers/LocalStorageHelper";
+import { LocalStorageKeys } from "static/LocalStorageKes";
+import { localStorageGet } from "utils/helpers/LocalStorageHelper";
 import { create } from "zustand";
 
 interface SessionStoreProps {
-  name: string;
+  tokenSession: string;
 }
 
 const sessionStorePropsEmpty: SessionStoreProps = {
-  name: get("name"),
+  tokenSession: localStorageGet(LocalStorageKeys.TOKEN_SESSION),
 };
 
 interface State {

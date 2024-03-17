@@ -1,0 +1,10 @@
+.layout__sidenav {
+  background: transparent;
+  border-right: 0;
+  box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.05);
+  max-width: 250px;
+  min-width: 250px;
+  transition: margin-left 0.3s ease-in-out, left 0.3s ease-in-out, margin-right 0.3s ease-in-out,
+    right 0.3s ease-in-out;
+  z-index: 1;
+}
