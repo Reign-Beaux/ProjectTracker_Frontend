@@ -1,13 +1,13 @@
 //#region imports
-import { useAxios } from "libs/axios";
-import { PagePaths } from "libs/react-router-dom";
-import { useSnackbarStore } from "libs/zustand";
-import { ResponseData } from "models/responseData";
+import { useAxios } from "application/libs/axios";
+import { PagePaths } from "application/libs/react-router-dom";
+import { useSnackbarStore } from "application/libs/zustand";
+import { ResponseData } from "application/models/responseData";
+import { LocalStorageKeys } from "application/static/LocalStorageKes";
+import { LoginEndpoints } from "application/static/endpoints";
+import { encryptData } from "application/utils/helpers/CriptographyHelper";
+import { localStorageSave } from "application/utils/helpers/LocalStorageHelper";
 import { useNavigate } from "react-router-dom";
-import { LocalStorageKeys } from "static/LocalStorageKes";
-import { LoginEndpoints } from "static/endpoints";
-import { encryptData } from "utils/helpers/CriptographyHelper";
-import { localStorageSave } from "utils/helpers/LocalStorageHelper";
 import { useFormSettings } from "./hooks";
 import { AuthResponse, CredentialsRequest } from "./models";
 //#endregion
