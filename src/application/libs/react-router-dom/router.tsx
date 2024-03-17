@@ -1,6 +1,6 @@
+import { Dashboard, Login } from "@/features";
 import { Navigate, RouteObject, createBrowserRouter } from "react-router-dom";
 import { PagePaths, RouteAccessControl } from ".";
-import { Dashboard, Login } from "features";
 
 const routes: RouteObject[] = [
   {
@@ -9,7 +9,7 @@ const routes: RouteObject[] = [
   },
   {
     path: PagePaths.DASHBOARD,
-    element: <RouteAccessControl component={<Dashboard />} />
+    element: <RouteAccessControl component={<Dashboard />} />,
   },
   {
     path: PagePaths.ERROR_PATH,

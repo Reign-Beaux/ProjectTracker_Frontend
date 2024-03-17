@@ -20,7 +20,6 @@
       "models/*": ["./src/application/models/*"],
       "static/*": ["./src/application/static/*"],
       "utils/*": ["./src/application/utils/*"],
-      "features/*": ["./src/features/*"],
       "@/*": ["./src/*"]
     },
 

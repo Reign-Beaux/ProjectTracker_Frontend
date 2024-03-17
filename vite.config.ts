@@ -13,7 +13,6 @@ export default defineConfig({
       { find: "models", replacement: path.resolve(__dirname, "src/application/models") },
       { find: "static", replacement: path.resolve(__dirname, "src/application/static") },
       { find: "utils", replacement: path.resolve(__dirname, "src/application/utils") },
-      { find: "features", replacement: path.resolve(__dirname, "src/features") },
       { find: "@", replacement: path.resolve(__dirname, "src") },
     ],
   },

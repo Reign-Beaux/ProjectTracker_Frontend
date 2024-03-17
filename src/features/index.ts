@@ -1,2 +1,2 @@
-export * from './darshboard/Dashborad';
-export * from './login/Login';
+export * from "./darshboard/Dashborad";
+export * from "./login/Login";
