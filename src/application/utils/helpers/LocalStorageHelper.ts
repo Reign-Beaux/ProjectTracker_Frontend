@@ -1,12 +1,12 @@
-export const save = (key: string, data: string) => {
+export const localStorageSave = (key: string, data: string) => {
   localStorage.setItem(key, data);
 };
 
-export const get = (key: string) => {
+export const localStorageGet = (key: string) => {
   const token = localStorage.getItem(key);
   return token ? token : "";
 };
 
-export const remove = (key: string) => {
+export const localStorageRemove = (key: string) => {
   localStorage.removeItem(key);
 };
