@@ -4,8 +4,8 @@
   --blue-1-hover: hsl(210, 100%, 50%);
   --blue-1-active: hsl(210, 100%, 60%);
 
-  --white-1: hsl(0, 0%, 90%);
-  --white-2: hsl(0, 0%, 80%);
+  --white-1: hsl(0, 0%, 100%);
+  --white-2: hsla(0, 0%, 90%, 0.3);
 
   --card-shadow: hsla(0, 0%, 0%, 0.2);
 

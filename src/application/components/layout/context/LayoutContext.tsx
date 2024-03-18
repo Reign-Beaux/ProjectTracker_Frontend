@@ -1,27 +1,27 @@
 import { ContextProviderProps } from "@/application/models";
-import { Context, createContext, useContext, useState } from "react";
+import { Context, Dispatch, SetStateAction, createContext, useContext, useState } from "react";
 
 interface ContextProps {
-  toggleSidenav: boolean;
-  setToggleSidenav: Function;
+  toggledSidenav: boolean;
+  setToggledSidenav: Dispatch<SetStateAction<boolean>>;
 }
 
 const contextEmptyState: ContextProps = {
-  toggleSidenav: false,
-  setToggleSidenav: () => {},
+  toggledSidenav: false,
+  setToggledSidenav: () => {},
 };
 
 const LayoutContext: Context<ContextProps> = createContext(contextEmptyState);
 
 export const LayoutProvider = ({ children }: ContextProviderProps) => {
-  const [toggleSidenav, setToggleSidenav] = useState(false);
+  const [toggledSidenav, setToggledSidenav] = useState(false);
 
   return (
-    <LayoutContext.Provider value={{ toggleSidenav, setToggleSidenav }}>
+    <LayoutContext.Provider value={{ toggledSidenav, setToggledSidenav }}>
       {children}
     </LayoutContext.Provider>
   );
-}
+};
 
 export const useLayoutContext = () => {
   const context = useContext(LayoutContext);
@@ -29,4 +29,4 @@ export const useLayoutContext = () => {
   if (!context) throw Error("This component is not found inside LayoutContext");
 
   return context;
-}
+};
