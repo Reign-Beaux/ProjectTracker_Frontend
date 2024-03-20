@@ -20,4 +20,3 @@ const routes: RouteObject[] = [
 const router = createBrowserRouter(routes);
 
 export { router };
-
