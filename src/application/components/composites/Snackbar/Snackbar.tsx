@@ -41,12 +41,12 @@ export const Snackbar = () => {
     <>
       {open && (
         <div className={classSnackbar}>
-          <Icon name={iconName[type]} style={{ marginRight: "10px" }} />
+          <Icon name={iconName[type]} style={{ marginRight: "0.625rem" }} />
           {message}
           <Icon
             name="Close"
             onClick={() => closeModal()}
-            style={{ marginLeft: "10px", cursor: "pointer" }}
+            style={{ marginLeft: "0.625rem", cursor: "pointer" }}
           />
         </div>
       )}

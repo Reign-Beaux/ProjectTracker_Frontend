@@ -32,13 +32,7 @@
 }
 
 .layout__sidenav__profile_name {
-  margin: 5px 0;
+  margin: 0.3125rem 0;
   max-width: calc(100% - 1.875rem);
   text-align: center;
-}
-
-@media (min-width: 1px) and (max-width: 991.98px) {
-  .layout__sidenav .toggled {
-    margin-left: 0;
-  }
 }
