@@ -16,7 +16,7 @@
 .layout__sidenav__logo {
   width: calc(100% - 1.25rem);
   padding: 0.625rem;
-  height: 4rem;
+  height: 3rem;
 }
 
 .layout__sidenav__container__profile {
@@ -35,4 +35,21 @@
   margin: 0.3125rem 0;
   max-width: calc(100% - 1.875rem);
   text-align: center;
+}
+
+.layout__sidenav__container__features {
+  padding: 0.5rem;  
+}
+
+.layout__sidenav__feature {
+  display: block;
+  color: var(--black-1);
+  padding: 10px;
+  text-decoration: none; /* Eliminar subrayado predeterminado del enlace */
+  border: none; /* Eliminar borde */
+  border-radius: 5px; /* Bordes redondeados */
+}
+
+.layout__sidenav__feature:hover {
+  background-color: hsla(0, 0%, 0%, 0.05); /* Color de fondo */
 }

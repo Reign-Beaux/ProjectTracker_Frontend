@@ -1,3 +1,5 @@
+import { Link } from "application/components/elements/link/Link";
+import { PagePaths } from "application/libs/react-router-dom";
 import { useLayoutContext } from "../../context";
 import "./styles.css";
 
@@ -16,8 +18,10 @@ export const Sidenav = () => {
         <div className="layout__sidenav__profile_name">{name}</div>
         <small>Web Developer</small>
       </div>
-      <div className="layout__sidenav__features">
-        
+      <div className="layout__sidenav__container__features">
+        <Link to={PagePaths.DASHBOARD} className="layout__sidenav__feature">
+          Dashboard
+        </Link>
       </div>
     </nav>
   );

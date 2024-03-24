@@ -1,4 +1,5 @@
 :root {
+  --black-1: hsl(0, 0%, 0%);
 
   --blue-1: hsl(210, 100%, 40%);
   --blue-1-hover: hsl(210, 100%, 50%);
