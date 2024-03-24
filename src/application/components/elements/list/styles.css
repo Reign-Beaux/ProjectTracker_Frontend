@@ -1,4 +1,6 @@
 .list__text {
+  display: flex;
+  justify-content: space-between;
   color: var(--black-1);
   padding: 0.625rem;
   user-select: none;
@@ -7,4 +9,8 @@
 
 .list__text:hover {
   background-color: hsla(0, 0%, 0%, 0.05);
+}
+
+.list__container {
+  background-color: hsla(0, 0%, 0%, 0.1);  
 }
