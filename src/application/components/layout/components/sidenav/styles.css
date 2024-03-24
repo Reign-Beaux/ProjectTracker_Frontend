@@ -44,12 +44,12 @@
 .layout__sidenav__feature {
   display: block;
   color: var(--black-1);
-  padding: 10px;
-  text-decoration: none; /* Eliminar subrayado predeterminado del enlace */
-  border: none; /* Eliminar borde */
-  border-radius: 5px; /* Bordes redondeados */
+  padding: 0.625rem;
+  text-decoration: none;
+  border: none;
+  border-radius: 0.3125rem;
 }
 
 .layout__sidenav__feature:hover {
-  background-color: hsla(0, 0%, 0%, 0.05); /* Color de fondo */
+  background-color: hsla(0, 0%, 0%, 0.05);
 }

@@ -2,6 +2,17 @@ import { Link } from "application/components/elements/link/Link";
 import { PagePaths } from "application/libs/react-router-dom";
 import { useLayoutContext } from "../../context";
 import "./styles.css";
+import { List } from "application/components/elements";
+import { Fragment } from "react/jsx-runtime";
+
+interface FeatureDetail {
+  name: string;
+  path: string;
+}
+
+interface Feature extends FeatureDetail {
+  childrens: FeatureDetail[];
+}
 
 export const Sidenav = () => {
   const { toggledSidenav } = useLayoutContext();
@@ -9,6 +20,28 @@ export const Sidenav = () => {
   const sidenavClass = "layout__sidenav" + (toggledSidenav ? " toggled" : "");
 
   const name = "Brenda Lizbeth Vazquez Tolentino";
+
+  const features: Feature[] = [
+    {
+      name: "Dashboard",
+      path: PagePaths.DASHBOARD,
+      childrens: [],
+    },
+    {
+      name: "System",
+      path: "",
+      childrens: [
+        {
+          name: "Users",
+          path: PagePaths.SYSTEM_USERS,
+        },
+        {
+          name: "Roles",
+          path: PagePaths.SYSTEM_ROLES,
+        },
+      ],
+    },
+  ];
 
   return (
     <nav className={sidenavClass}>
@@ -19,9 +52,26 @@ export const Sidenav = () => {
         <small>Web Developer</small>
       </div>
       <div className="layout__sidenav__container__features">
-        <Link to={PagePaths.DASHBOARD} className="layout__sidenav__feature">
-          Dashboard
-        </Link>
+        {features.map((feature, index) => (
+          <Fragment key={index}>
+            {feature.path === "" ? (
+              <List
+                text={feature.name}
+                items={feature.childrens.map((child, index) => (
+                  <Fragment key={index}>
+                    <Link to={child.path} className="layout__sidenav__feature">
+                      {child.name}
+                    </Link>
+                  </Fragment>
+                ))}
+              />
+            ) : (
+              <Link to={feature.path} className="layout__sidenav__feature">
+                {feature.name}
+              </Link>
+            )}
+          </Fragment>
+        ))}
       </div>
     </nav>
   );

@@ -1,8 +1,8 @@
 import { ReactNode } from "react";
-import { NavLinkProps, Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 import "./styles.css";
 
-interface LinkProps extends NavLinkProps {
+interface LinkProps {
   children: ReactNode;
   to: string;
   className?: string;

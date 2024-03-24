@@ -1,0 +1,10 @@
+.list__text {
+  color: var(--black-1);
+  padding: 0.625rem;
+  user-select: none;
+  cursor: pointer;
+}
+
+.list__text:hover {
+  background-color: hsla(0, 0%, 0%, 0.05);
+}
