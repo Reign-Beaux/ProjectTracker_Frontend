@@ -1,2 +1,2 @@
-export * from './header/Header';
-export * from './sidenav/Sidenav';
+export * from './header/header';
+export * from './sidenav/sideNav';
