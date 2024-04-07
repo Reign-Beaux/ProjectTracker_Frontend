@@ -1,13 +1,13 @@
 import { ReactNode } from "react";
 import { Header, Sidenav } from "./components";
-import "./styles.css";
 import { LayoutProvider } from "./context";
+import "./styles.css";
 
 interface LayoutProps {
   children: ReactNode;
 }
 
-export const Layout = ({ children }: LayoutProps) => {
+export const MainLayout = ({ children }: LayoutProps) => {
   return (
     <LayoutProvider>
       <div className="layout__container">
