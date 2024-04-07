@@ -1,6 +1,6 @@
 import { Fragment, ReactNode, useState } from "react";
-import "./styles.css";
 import { Icon } from "..";
+import "./styles.css";
 
 interface ListProps {
   text: string;
