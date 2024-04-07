@@ -1,5 +1,5 @@
 import { Icon } from "application/components/elements";
-import { FormSettings } from "application/libs/formik";
+import { FormSettings } from "application/libs/formik/models";
 import { useState } from "react";
 import "./styles.css";
 
