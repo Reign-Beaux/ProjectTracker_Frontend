@@ -1,2 +1,2 @@
-export * from './CredentialsRequest';
-export * from './AuthResponse';
+export * from './credentialsRequest';
+export * from './authResponse';

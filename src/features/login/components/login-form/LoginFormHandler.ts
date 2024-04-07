@@ -1,16 +1,16 @@
 import { encryptData, localStorageSave } from "application/helpers";
 import { LocalStorageKeys } from "application/helpers/local-storage/localStorageKeys";
 import { useAxios } from "application/libs/axios";
-import { PagePaths } from "application/libs/react-router-dom";
-import { useSnackbarStore } from "application/libs/zustand";
 import { ResponseData } from "application/libs/axios/models/responseData";
-import { LoginEndpoints } from "application/static/endpoints";
+import { PagePaths } from "application/libs/react-router-dom/static";
+import { useSnackbarStore } from "application/libs/zustand";
 import { useNavigate } from "react-router-dom";
-import { useFormSettings } from "./hooks";
+import { LoginEndpoints } from "../../static";
 import { AuthResponse, CredentialsRequest } from "./models";
+import { useCredentialsForm } from "./hooks";
 
 export const useLoginFormHandler = () => {
-  const { showSnackbarError } = useSnackbarStore();
+  const { showSnackbar } = useSnackbarStore();
   const { post } = useAxios();
   const navigate = useNavigate();
 
@@ -26,11 +26,11 @@ export const useLoginFormHandler = () => {
       navigate(PagePaths.DASHBOARD);
     } catch (error: any) {
       const message = error?.response?.data?.message ?? error.message;
-      showSnackbarError(message);
+      showSnackbar(message, "error");
     }
   };
 
-  const formSettings = useFormSettings({ sendCredentials });
+  const formSettings = useCredentialsForm({ sendCredentials });
 
   return formSettings;
 };

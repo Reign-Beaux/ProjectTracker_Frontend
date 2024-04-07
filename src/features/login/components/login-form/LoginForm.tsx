@@ -1,5 +1,5 @@
 import { Button, Card, Input } from "application/components/elements";
-import { useLoginFormHandler } from "./LoginFormHandler";
+import { useLoginFormHandler } from "./loginFormHandler";
 import "./styles.css";
 
 export const LoginForm = () => {

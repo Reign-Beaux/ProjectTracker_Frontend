@@ -9,7 +9,7 @@ export interface useFormSettingsProps {
 
 interface FormValues extends CredentialsRequest {}
 
-export const useFormSettings = ({ sendCredentials }: useFormSettingsProps) => {
+export const useCredentialsForm = ({ sendCredentials }: useFormSettingsProps) => {
   const initialValues: FormValues = { ...credentialsRequestEmpty };
 
   const validationSchema = Yup.object({
