@@ -6,10 +6,7 @@ export const useAxios = () => {
   useAxiosInterceptor();
   const abortController = new AbortController();
   const signal = abortController.signal;
-  const apiUrl =
-    import.meta.env.MODE === "production"
-      ? import.meta.env.VITE_API_URL_PROD
-      : import.meta.env.VITE_API_URL_DEV;
+  const apiUrl = import.meta.env.VITE_API_URL;
 
   const get = async <T>(endpoint: string) => {
     const response: AxiosResponse<T> = await axios.get(`${apiUrl}/${endpoint}`, {

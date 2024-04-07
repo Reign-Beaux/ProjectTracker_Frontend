@@ -1,8 +1,8 @@
 import * as CryptoJS from "crypto-js";
 
 export const encryptData = (data: string) => {
-  const key = "12345678901234567890123456789012";
-  const iv = "1234567890123456";
+  const key = import.meta.env.VITE_KEY_ENCRYPT;
+  const iv = import.meta.env.VITE_KEY_IV;
   const encrypted = CryptoJS.AES.encrypt(data, CryptoJS.enc.Utf8.parse(key), {
     iv: CryptoJS.enc.Utf8.parse(iv),
     mode: CryptoJS.mode.CBC,
