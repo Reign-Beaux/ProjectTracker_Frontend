@@ -1,5 +1,5 @@
 import { encryptData, localStorageSave } from "application/helpers";
-import { LocalStorageKeys } from "application/helpers/local-storage/LocalStorageKeys";
+import { LocalStorageKeys } from "application/helpers/local-storage/localStorageKeys";
 import { useAxios } from "application/libs/axios";
 import { PagePaths } from "application/libs/react-router-dom";
 import { useSnackbarStore } from "application/libs/zustand";
