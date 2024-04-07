@@ -1,2 +1,2 @@
-export * from './Axios';
-export * from './AxiosInterceptor';
+export * from './axios';
+export * from './axiosInterceptor';

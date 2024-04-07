@@ -1,5 +1,4 @@
-import { LocalStorageKeys } from "application/helpers/local-storage/localStorageKeys";
-import { localStorageGet } from "application/utils/helpers/LocalStorageHelper";
+import { LocalStorageKeys, localStorageGet } from "application/helpers";
 import { create } from "zustand";
 
 interface SessionStoreProps {

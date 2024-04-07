@@ -1,3 +1,2 @@
-export * from './PagePaths';
-export * from './RouteAccessControl';
-export * from './Router';
+export * from './routeAccessControl';
+export * from './router';

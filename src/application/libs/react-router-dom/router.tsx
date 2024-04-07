@@ -1,6 +1,7 @@
 import { Dashboard, Login } from "@/features";
 import { Navigate, RouteObject, createBrowserRouter } from "react-router-dom";
-import { PagePaths, RouteAccessControl } from ".";
+import { RouteAccessControl } from "./routeAccessControl";
+import { PagePaths } from "./static";
 
 const routes: RouteObject[] = [
   {
@@ -20,3 +21,4 @@ const routes: RouteObject[] = [
 const router = createBrowserRouter(routes);
 
 export { router };
+

@@ -1,1 +1,1 @@
-export * from './FormSettings';
+export * from './formSettings';

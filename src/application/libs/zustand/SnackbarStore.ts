@@ -1,17 +1,16 @@
 import { create } from "zustand";
 
+type SnackbarType = "success" | "warning" | "error" | "info";
+
 interface SnackbarProps {
   open: boolean;
   message: string;
-  type: "success" | "warning" | "error" | "info";
+  type: SnackbarType;
 }
 
 interface State {
   props: SnackbarProps;
-  showSnackbarSuccess: (message: string) => void;
-  showSnackbarError: (message: string) => void;
-  showSnackbarWarning: (message: string) => void;
-  showSnackbarInfo: (message: string) => void;
+  showSnackbar: (message: string, type: SnackbarType) => void;
   closeModal: () => void;
 }
 
@@ -23,39 +22,12 @@ const snackbarPropsEmpty: SnackbarProps = {
 
 export const useSnackbarStore = create<State>()((set) => ({
   props: { ...snackbarPropsEmpty },
-  showSnackbarSuccess: (message: string) => {
+  showSnackbar: (message: string, type: SnackbarType) => {
     set({
       props: {
         open: true,
         message: message,
-        type: "success",
-      },
-    });
-  },
-  showSnackbarError: (message: string) => {
-    set({
-      props: {
-        open: true,
-        message: message,
-        type: "error",
-      },
-    });
-  },
-  showSnackbarWarning: (message: string) => {
-    set({
-      props: {
-        open: true,
-        message: message,
-        type: "warning",
-      },
-    });
-  },
-  showSnackbarInfo: (message: string) => {
-    set({
-      props: {
-        open: true,
-        message: message,
-        type: "info",
+        type: type,
       },
     });
   },
