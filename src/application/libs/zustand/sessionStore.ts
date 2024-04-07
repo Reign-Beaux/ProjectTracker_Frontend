@@ -1,4 +1,4 @@
-import { LocalStorageKeys } from "application/static/LocalStorageKes";
+import { LocalStorageKeys } from "application/helpers/local-storage/LocalStorageKeys";
 import { localStorageGet } from "application/utils/helpers/LocalStorageHelper";
 import { create } from "zustand";
 

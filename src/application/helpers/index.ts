@@ -1,2 +1,2 @@
 export * from './CriptographyHelper';
-export * from './LocalStorageHelper';
+export * from './local-storage/LocalStorageHelper';

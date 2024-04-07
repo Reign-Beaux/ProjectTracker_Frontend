@@ -1,9 +1,9 @@
-import { Link } from "application/components/elements/link/Link";
+import { List } from "application/components/elements";
+import { Link } from "application/components/elements/link/link";
 import { PagePaths } from "application/libs/react-router-dom";
+import { Fragment } from "react/jsx-runtime";
 import { useLayoutContext } from "../../context";
 import "./styles.css";
-import { List } from "application/components/elements";
-import { Fragment } from "react/jsx-runtime";
 
 interface FeatureDetail {
   name: string;

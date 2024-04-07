@@ -3,7 +3,7 @@ import { useAxios } from "application/libs/axios";
 import { PagePaths } from "application/libs/react-router-dom";
 import { useSnackbarStore } from "application/libs/zustand";
 import { ResponseData } from "application/models/responseData";
-import { LocalStorageKeys } from "application/static/LocalStorageKes";
+import { LocalStorageKeys } from "application/helpers/local-storage/LocalStorageKeys";
 import { LoginEndpoints } from "application/static/endpoints";
 import { useNavigate } from "react-router-dom";
 import { useFormSettings } from "./hooks";

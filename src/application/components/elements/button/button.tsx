@@ -1,4 +1,4 @@
-import { Tooltip } from "../../elements";
+import { Tooltip } from "..";
 import "./styles.css";
 
 export interface ButtonProps
