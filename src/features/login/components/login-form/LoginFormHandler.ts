@@ -25,7 +25,7 @@ export const useLoginFormHandler = () => {
     }
   };
 
-  const formSettings = useCredentialsForm({ submitCredentialsForm });
+  const credentialsForm = useCredentialsForm({ submitCredentialsForm });
 
-  return formSettings;
+  return credentialsForm;
 };
