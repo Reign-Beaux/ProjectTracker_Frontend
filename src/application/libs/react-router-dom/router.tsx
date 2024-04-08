@@ -1,7 +1,7 @@
 import { Dashboard, Login } from "@/features";
 import { Navigate, RouteObject, createBrowserRouter } from "react-router-dom";
-import { AuthGuard } from "./guards";
 import { PagePaths } from "./static";
+import { AuthGuard } from "./guards";
 
 const routes: RouteObject[] = [
   {
