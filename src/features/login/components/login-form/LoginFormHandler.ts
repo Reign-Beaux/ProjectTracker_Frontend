@@ -1,13 +1,13 @@
 import { encryptData, localStorageSave } from "application/helpers";
 import { LocalStorageKeys } from "application/helpers/local-storage/localStorageKeys";
 import { useAxios } from "application/libs/axios";
-import { ResponseData } from "application/libs/axios/models/responseData";
+import { ResponseData } from "application/libs/axios/models";
 import { PagePaths } from "application/libs/react-router-dom/static";
 import { useSnackbarStore } from "application/libs/zustand";
 import { useNavigate } from "react-router-dom";
 import { LoginEndpoints } from "../../static";
-import { AuthResponse, CredentialsRequest } from "./models";
 import { useCredentialsForm } from "./hooks";
+import { AuthResponse, CredentialsRequest } from "./models";
 
 export const useLoginFormHandler = () => {
   const { showSnackbar } = useSnackbarStore();
