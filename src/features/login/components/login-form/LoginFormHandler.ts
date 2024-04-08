@@ -1,7 +1,7 @@
 import { encryptData, localStorageSave } from "application/helpers";
 import { LocalStorageKeys } from "application/helpers/local-storage/localStorageKeys";
 import { useAxios } from "application/libs/axios";
-import { ResponseData } from "application/libs/axios/models";
+import { ResponseData } from "application/models";
 import { PagePaths } from "application/libs/react-router-dom/static";
 import { useSnackbarStore } from "application/libs/zustand";
 import { useNavigate } from "react-router-dom";
