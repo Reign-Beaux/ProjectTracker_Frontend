@@ -1,5 +1,4 @@
-import { List } from "application/components/elements";
-import { Link } from "application/components/elements/link/link";
+import { Anchor, List } from "application/components/elements";
 import { PagePaths } from "application/libs/react-router-dom";
 import { Fragment } from "react/jsx-runtime";
 import { useLayoutContext } from "../../context";
@@ -59,16 +58,16 @@ export const Sidenav = () => {
                 text={feature.name}
                 items={feature.childrens.map((child, index) => (
                   <Fragment key={index}>
-                    <Link to={child.path} className="layout__sidenav__feature">
+                    <Anchor to={child.path} className="layout__sidenav__feature">
                       {child.name}
-                    </Link>
+                    </Anchor>
                   </Fragment>
                 ))}
               />
             ) : (
-              <Link to={feature.path} className="layout__sidenav__feature">
+              <Anchor to={feature.path} className="layout__sidenav__feature">
                 {feature.name}
-              </Link>
+              </Anchor>
             )}
           </Fragment>
         ))}
