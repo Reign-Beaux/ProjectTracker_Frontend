@@ -1,4 +1,4 @@
-import { ContextProviderProps } from "@/application/models";
+import { ContextProviderProps } from "application/models/reponse";
 import { Context, Dispatch, SetStateAction, createContext, useContext, useState } from "react";
 
 interface ContextProps {
