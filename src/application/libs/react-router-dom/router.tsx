@@ -1,6 +1,6 @@
 import { Dashboard, Login } from "@/features";
 import { Navigate, RouteObject, createBrowserRouter } from "react-router-dom";
-import { RouteAccessControl } from "./routeAccessControl";
+import { AuthGuard } from "./guards";
 import { PagePaths } from "./static";
 
 const routes: RouteObject[] = [
@@ -10,7 +10,7 @@ const routes: RouteObject[] = [
   },
   {
     path: PagePaths.DASHBOARD,
-    element: <RouteAccessControl component={<Dashboard />} />,
+    element: <AuthGuard component={<Dashboard />} />,
   },
   {
     path: PagePaths.ERROR_PATH,
