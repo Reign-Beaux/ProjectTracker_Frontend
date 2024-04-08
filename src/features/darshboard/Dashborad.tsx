@@ -1,3 +1,9 @@
+import { MainLayout } from "application/components/layouts";
+
 export const Dashboard = () => {
-  return <h1>Dashboear Workiing!!!</h1>
-}
+  return (
+    <MainLayout>
+      <h1>Dashboar Workiing!!!</h1>
+    </MainLayout>
+  );
+};

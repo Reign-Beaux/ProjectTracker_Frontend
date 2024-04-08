@@ -1,4 +1,4 @@
-import { Dashboard, Login } from "@/features";
+import { Dashboard, Login, Users } from "@/features";
 import { Navigate, RouteObject, createBrowserRouter } from "react-router-dom";
 import { PagePaths } from "./static";
 import { AuthGuard } from "./guards";
@@ -13,6 +13,10 @@ const routes: RouteObject[] = [
     element: <AuthGuard component={<Dashboard />} />,
   },
   {
+    path: PagePaths.SYSTEM_USERS,
+    element: <AuthGuard component={<Users />} />,
+  },
+  {
     path: PagePaths.ERROR_PATH,
     element: <Navigate to={PagePaths.LOGIN} />,
   },
@@ -21,4 +25,3 @@ const routes: RouteObject[] = [
 const router = createBrowserRouter(routes);
 
 export { router };
-
