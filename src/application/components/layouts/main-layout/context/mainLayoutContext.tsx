@@ -1,5 +1,16 @@
-import { ContextProviderProps } from "application/models/reponse";
-import { Context, Dispatch, SetStateAction, createContext, useContext, useState } from "react";
+import {
+  Context,
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  createContext,
+  useContext,
+  useState,
+} from "react";
+
+interface ContextProviderProps {
+  children: ReactNode;
+}
 
 interface ContextProps {
   toggledSidenav: boolean;
