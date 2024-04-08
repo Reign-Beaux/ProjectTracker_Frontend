@@ -4,12 +4,12 @@ import * as Yup from "yup";
 import { CredentialsRequest, credentialsRequestEmpty } from "../models";
 
 export interface useFormSettingsProps {
-  sendCredentials: (values: CredentialsRequest) => Promise<void>;
+  submitCredentialsForm: (values: CredentialsRequest) => Promise<void>;
 }
 
 interface FormValues extends CredentialsRequest {}
 
-export const useCredentialsForm = ({ sendCredentials }: useFormSettingsProps) => {
+export const useCredentialsForm = ({ submitCredentialsForm }: useFormSettingsProps) => {
   const initialValues: FormValues = { ...credentialsRequestEmpty };
 
   const validationSchema = Yup.object({
@@ -20,7 +20,7 @@ export const useCredentialsForm = ({ sendCredentials }: useFormSettingsProps) =>
   const formik = useFormik({
     initialValues,
     validationSchema,
-    onSubmit: sendCredentials,
+    onSubmit: submitCredentialsForm,
   });
 
   return {

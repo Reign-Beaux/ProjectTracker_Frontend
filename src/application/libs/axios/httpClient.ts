@@ -2,7 +2,7 @@ import axios, { AxiosResponse } from "axios";
 import { useEffect } from "react";
 import { useAxiosInterceptor } from ".";
 
-export const useAxios = () => {
+export const useHttpClient = () => {
   useAxiosInterceptor();
   const abortController = new AbortController();
   const signal = abortController.signal;

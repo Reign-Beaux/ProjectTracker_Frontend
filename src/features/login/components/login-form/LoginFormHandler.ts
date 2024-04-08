@@ -1,27 +1,22 @@
 import { encryptData, localStorageSave } from "application/helpers";
 import { LocalStorageKeys } from "application/helpers/local-storage/localStorageKeys";
-import { useAxios } from "application/libs/axios";
-import { ResponseData } from "application/models/reponse";
 import { PagePaths } from "application/libs/react-router-dom/static";
 import { useSnackbarStore } from "application/libs/zustand";
 import { useNavigate } from "react-router-dom";
-import { LoginEndpoints } from "../../static";
+import { useLoginService } from "../../services";
 import { useCredentialsForm } from "./hooks";
-import { AuthResponse, CredentialsRequest } from "./models";
+import { CredentialsRequest } from "./models";
 
 export const useLoginFormHandler = () => {
   const { showSnackbar } = useSnackbarStore();
-  const { post } = useAxios();
+  const { sendCredentials } = useLoginService();
   const navigate = useNavigate();
 
-  const sendCredentials = async (values: CredentialsRequest) => {
-    const payload = { ...values };
-    payload.password = encryptData(values.password);
+  const submitCredentialsForm = async (values: CredentialsRequest) => {
     try {
-      const response = await post<ResponseData<AuthResponse>, CredentialsRequest>(
-        LoginEndpoints.LOGIN,
-        payload
-      );
+      const payload = { ...values };
+      payload.password = encryptData(values.password);
+      const response = await sendCredentials(payload);
       localStorageSave(LocalStorageKeys.TOKEN_SESSION, response.data.token);
       navigate(PagePaths.DASHBOARD);
     } catch (error: any) {
@@ -30,7 +25,7 @@ export const useLoginFormHandler = () => {
     }
   };
 
-  const formSettings = useCredentialsForm({ sendCredentials });
+  const formSettings = useCredentialsForm({ submitCredentialsForm });
 
   return formSettings;
 };
