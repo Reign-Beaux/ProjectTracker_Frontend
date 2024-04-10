@@ -1,5 +1,4 @@
-import { useHttpClient } from "application/libs/axios"
-import { ResponseData } from "application/models/response";
+import { ResponseData, useHttpClient } from "application/settings/http-client";
 import { AuthResponse, CredentialsRequest } from "../components/login-form/models";
 
 enum LoginEndpoints {
@@ -14,9 +13,9 @@ export const useLoginService = () => {
       LoginEndpoints.LOGIN,
       payload
     );
-    
-    return response;
-  }
 
-  return { sendCredentials }
-}
+    return response;
+  };
+
+  return { sendCredentials };
+};

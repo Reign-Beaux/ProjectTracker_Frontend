@@ -1,8 +1,8 @@
 import { Anchor, List } from "application/components/elements";
-import { PagePaths } from "application/libs/react-router-dom";
 import { Fragment } from "react/jsx-runtime";
 import { useLayoutContext } from "../../context";
 import "./styles.css";
+import { PagePaths } from "application/settings/routes";
 
 interface FeatureDetail {
   name: string;

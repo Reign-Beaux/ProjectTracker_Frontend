@@ -1,7 +1,7 @@
 import { encryptData, localStorageSave } from "application/helpers";
 import { LocalStorageKeys } from "application/helpers/local-storage/localStorageKeys";
-import { PagePaths } from "application/libs/react-router-dom/static";
 import { useSnackbarStore } from "application/settings/global-state";
+import { PagePaths } from "application/settings/routes";
 import { useNavigate } from "react-router-dom";
 import { useLoginService } from "../../services";
 import { useCredentialsForm } from "./hooks";
