@@ -13,7 +13,7 @@ export const Anchor = ({
   isExternal = false,
   ...props
 }: AnchorProps) => {
-  const classes = type === "text" ? "anchor" : "anchor__button" + " " + className;
+  const classes = (type === "text" ? "anchor" : "anchor__button") + " " + className;
 
   return (
     <>
