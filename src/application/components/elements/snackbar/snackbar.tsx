@@ -1,5 +1,5 @@
 import { Icon } from "application/components/elements";
-import { useSnackbarStore } from "application/libs/zustand";
+import { useSnackbarStore } from "application/settings/global-state";
 import { useEffect, useRef } from "react";
 import "./styles.css";
 

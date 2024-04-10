@@ -1,9 +1,9 @@
 import axios, { AxiosResponse } from "axios";
 import { useEffect } from "react";
-import { useAxiosInterceptor } from ".";
+import { useInterceptor } from ".";
 
 export const useHttpClient = () => {
-  useAxiosInterceptor();
+  useInterceptor();
   const abortController = new AbortController();
   const signal = abortController.signal;
   const apiUrl = import.meta.env.VITE_API_URL;
