@@ -43,7 +43,7 @@ export const Sidenav = () => {
   ];
 
   return (
-    <nav className={sidenavClass}>
+    <aside className={sidenavClass}>
       <img src="assets/logo-transparent.png" className="layout__sidenav__logo" />
       <div className="layout__sidenav__container__profile">
         <img src="assets/profile-default.webp" className="layout__sidenav__profile_picture" />
@@ -72,6 +72,6 @@ export const Sidenav = () => {
           </Fragment>
         ))}
       </div>
-    </nav>
+    </aside>
   );
 };
