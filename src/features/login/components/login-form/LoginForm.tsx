@@ -1,4 +1,4 @@
-import { Input } from "application/components/elements";
+import { Button, Input } from "application/components/elements";
 import { useLoginFormHandler } from "./loginFormHandler";
 
 export const LoginForm = () => {
@@ -16,6 +16,7 @@ export const LoginForm = () => {
         inputText="Contraseña"
         formSettings={credentialsForm}
       />
+      <Button>Hola mundo</Button>
     </div>
   );
 };

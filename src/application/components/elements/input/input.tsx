@@ -20,7 +20,7 @@ export const Input = ({ inputKey, inputText, formSettings, ...rest }: InputProps
       onBlur={formSettings.handleBlur}
       error={formSettings.touched[inputKey] && Boolean(formSettings.errors[inputKey])}
       helperText={formSettings.touched[inputKey] && formSettings.errors[inputKey]?.toString()}
-      style={{marginTop: "0"}}
+      style={{ marginTop: "0" }}
       {...rest}
     />
   );
