@@ -1,9 +1,21 @@
+import { Input } from "application/components/elements";
 import { useLoginFormHandler } from "./loginFormHandler";
 
 export const LoginForm = () => {
   const credentialsForm = useLoginFormHandler();
 
   return (
-    <div>LoginForm Working!!!</div>
+    <div>
+      <Input
+        inputKey="usernameOrEmail"
+        inputText="Usuario o Email"
+        formSettings={credentialsForm}
+      />
+      <Input
+        inputKey="password"
+        inputText="Contraseña"
+        formSettings={credentialsForm}
+      />
+    </div>
   );
 };

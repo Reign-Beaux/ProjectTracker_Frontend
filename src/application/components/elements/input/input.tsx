@@ -21,7 +21,6 @@ export const Input = ({ inputKey, inputText, formSettings, ...rest }: InputProps
       error={formSettings.touched[inputKey] && Boolean(formSettings.errors[inputKey])}
       helperText={formSettings.touched[inputKey] && formSettings.errors[inputKey]?.toString()}
       style={{marginTop: "0"}}
-      color="secondary"
       {...rest}
     />
   );
