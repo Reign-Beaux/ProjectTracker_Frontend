@@ -1,13 +1,13 @@
-import { Button as MaterialButton, ButtonProps as MaterialButtonProps } from "@mui/material";
+import { Button as MuiButton, ButtonProps as MuiButtonProps } from "@mui/material";
 
-interface ButtonProps extends MaterialButtonProps {
+interface ButtonProps extends MuiButtonProps {
   isLoading?: boolean;
 }
 
 export const Button = ({ children, isLoading, ...rest }: ButtonProps) => {
   return (
-    <MaterialButton variant="contained" style={{ marginTop: "15px", width: "150px" }} {...rest}>
+    <MuiButton variant="contained" style={{ marginTop: "15px", width: "150px" }} {...rest}>
       {children}
-    </MaterialButton>
+    </MuiButton>
   );
 };
