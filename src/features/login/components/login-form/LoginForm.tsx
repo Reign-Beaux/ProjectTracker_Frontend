@@ -1,4 +1,4 @@
-import { Button, Input } from "application/components/elements";
+import { Button, Input, InputPassword } from "application/components/elements";
 import { useLoginFormHandler } from "./loginFormHandler";
 
 export const LoginForm = () => {
@@ -11,12 +11,8 @@ export const LoginForm = () => {
         inputText="Usuario o Email"
         formSettings={credentialsForm}
       />
-      <Input
-        inputKey="password"
-        inputText="Contraseña"
-        formSettings={credentialsForm}
-      />
-      <Button>Hola mundo</Button>
+      <InputPassword inputKey="password" inputText="Contraseña" formSettings={credentialsForm} />
+      <Button>Acceder</Button>
     </div>
   );
 };
