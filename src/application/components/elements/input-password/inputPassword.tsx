@@ -30,7 +30,7 @@ export const InputPassword = ({
       type={showPassword ? "text" : "password"}
       InputProps={{
         endAdornment: (
-          <InputAdornment position="end" style={{ marginBottom: "10px" }}>
+          <InputAdornment position="end" style={{ marginBottom: "0.625rem", marginRight: "1rem" }}>
             <IconButton
               aria-label="toggle password visibility"
               onClick={toggleShowPassword}

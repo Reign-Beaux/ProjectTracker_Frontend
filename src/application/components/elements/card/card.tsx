@@ -1,7 +1,21 @@
-import { CardProps as MuiCardProps, Card as MuiCard } from "@mui/material";
+import { Card as MuiCard, CardProps as MuiCardProps } from "@mui/material";
+import { useEffect, useState } from "react";
+import "./styles.css";
 
 interface CardProps extends MuiCardProps {}
 
-export const Card = ({ children }: CardProps) => {
-  return <MuiCard sx={{ maxWidth: 345 }}>{children}</MuiCard>;
+export const Card = ({ children, className, ...rest }: CardProps) => {
+  const [cardClass, setCardClass] = useState("card");
+
+  useEffect(() => {
+    if (Boolean(className)) {
+      setCardClass(`card ${className}`);
+    }
+  }, []);
+
+  return (
+    <MuiCard className={cardClass} {...rest}>
+      {children}
+    </MuiCard>
+  );
 };
