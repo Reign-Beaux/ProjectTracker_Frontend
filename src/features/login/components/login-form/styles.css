@@ -1,15 +1,17 @@
-.login-form__main {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+@media only screen and (min-width: 1200px) {
+  .login-form__main {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-.login-form__card {
-  width: 20%;
-}
+  .login-form__card {
+    width: 20%;
+  }
 
-.login-form__button {
-  width: 100%;
-  margin-top: 1rem !important;
+  .login-form__button {
+    width: 100%;
+    margin-top: 1rem !important;
+  }
 }
