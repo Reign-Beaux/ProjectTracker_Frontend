@@ -3,7 +3,7 @@ import { Icon } from "application/components/elements";
 
 export const Header = () => {
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box component="header" sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
           <IconButton size="large" edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>

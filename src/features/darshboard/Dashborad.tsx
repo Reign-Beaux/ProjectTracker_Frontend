@@ -1,4 +1,9 @@
+import { MainLayout } from "application/components/layouts";
 
 export const Dashboard = () => {
-  return <h1>Dashboar Workiing!!!</h1>;
+  return (
+    <MainLayout title="Dashboard">
+      <h1>Dashboar Workiing!!!</h1>
+    </MainLayout>
+  );
 };
