@@ -18,7 +18,7 @@ const MainLayoutContext: Context<ContextProps> = createContext(contextEmptyState
 
 export const MainLayoutProvider = ({ children }: ProviderProps) => {
   const [isOpenSidenav, setIsOpenSidenav] = useState(false);
-  console.log(isOpenSidenav);
+  
   return (
     <MainLayoutContext.Provider value={{ isOpenSidenav, setIsOpenSidenav }}>
       {children}
