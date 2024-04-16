@@ -24,11 +24,6 @@ const features: Feature[] = [
         path: "/system/roles",
         children: [],
       },
-      {
-        name: "Features",
-        path: "/system/features",
-        children: [],
-      },
     ],
   },
 ];

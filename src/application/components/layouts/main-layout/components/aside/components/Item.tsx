@@ -1,5 +1,5 @@
 import { Collapse, List, ListItemButton, ListItemText } from "@mui/material";
-import { Icon } from "application/components/elements";
+import { Icon, Link } from "application/components/elements";
 import { useState } from "react";
 import { Feature } from "../models";
 
@@ -18,15 +18,20 @@ export const Item = ({ feature }: ItemProps) => {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", width: "100%" }}>
-      <ListItemButton onClick={expandItem}>
-        <ListItemText primary={feature.name} />
-        {feature.children.length > 0 && <Icon type={open ? "expandLess" : "expandMore"} />}
-      </ListItemButton>
+      {feature.children.length > 0 ? (
+        <ListItemButton onClick={expandItem}>
+          <ListItemText primary={feature.name} />
+          <Icon type={open ? "expandLess" : "expandMore"} />
+        </ListItemButton>
+      ) : (
+        <Link to={feature.path!}>{feature.name}</Link>
+      )}
+
       {feature.children.length > 0 && (
         <Collapse key={feature.name} in={open} timeout="auto" unmountOnExit>
           <List disablePadding>
             {feature.children.map((children) => (
-              <ListItemButton style={{ marginLeft: "1rem" }}>
+              <ListItemButton key={children.name} style={{ marginLeft: "1rem" }}>
                 <ListItemText primary={children.name} />
               </ListItemButton>
             ))}
