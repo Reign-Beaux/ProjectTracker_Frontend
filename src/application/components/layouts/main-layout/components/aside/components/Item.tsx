@@ -2,6 +2,7 @@ import { Collapse, List, ListItemButton, ListItemText } from "@mui/material";
 import { Icon, Link } from "application/components/elements";
 import { useState } from "react";
 import { Feature } from "../models";
+import "./styles.css";
 
 interface ItemProps {
   feature: Feature;
@@ -24,15 +25,7 @@ export const Item = ({ feature }: ItemProps) => {
           <Icon type={open ? "expandLess" : "expandMore"} />
         </ListItemButton>
       ) : (
-        <Link
-          to={feature.path!}
-          sx={{
-            "&:hover": {
-              backgroundColor: "rgba(0, 0, 0, 0.04)",
-            },
-            color: "inherit !important",
-            padding: "0.5rem 1rem",
-          }}>
+        <Link to={feature.path!} className="item__link">
           {feature.name}
         </Link>
       )}
@@ -46,12 +39,8 @@ export const Item = ({ feature }: ItemProps) => {
                 style={{ display: "flex", flexDirection: "column", width: "100%" }}>
                 <Link
                   to={children.path!}
+                  className="item__link"
                   sx={{
-                    "&:hover": {
-                      backgroundColor: "rgba(0, 0, 0, 0.04)",
-                    },
-                    color: "inherit !important",
-                    padding: "0.5rem 1rem",
                     marginLeft: "1rem",
                   }}>
                   {children.name}
