@@ -1,9 +1,9 @@
-import { Collapse, List, ListItem, ListItemButton, ListItemText } from "@mui/material";
+import { List, ListItem } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useMainLayoutContext } from "../../context";
+import { Item } from "./components";
 import { Feature } from "./models";
 import "./styles.css";
-import { Item } from "./components";
 
 const features: Feature[] = [
   {
