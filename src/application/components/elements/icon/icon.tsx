@@ -1,3 +1,5 @@
+import ExpandLess from "@mui/icons-material/ExpandLess";
+import ExpandMore from "@mui/icons-material/ExpandMore";
 import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
@@ -9,6 +11,8 @@ interface IconsProps {
 }
 
 const IconsMapper: Record<string, ReactNode> = {
+  expandLess: <ExpandLess />,
+  expandMore: <ExpandMore />,
   loader: <CircularProgress size={24} />,
   menu: <MenuIcon />,
   inbox: <InboxIcon />,
