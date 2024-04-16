@@ -24,16 +24,39 @@ export const Item = ({ feature }: ItemProps) => {
           <Icon type={open ? "expandLess" : "expandMore"} />
         </ListItemButton>
       ) : (
-        <Link to={feature.path!}>{feature.name}</Link>
+        <Link
+          to={feature.path!}
+          sx={{
+            "&:hover": {
+              backgroundColor: "rgba(0, 0, 0, 0.04)",
+            },
+            color: "inherit !important",
+            padding: "0.5rem 1rem",
+          }}>
+          {feature.name}
+        </Link>
       )}
 
       {feature.children.length > 0 && (
         <Collapse key={feature.name} in={open} timeout="auto" unmountOnExit>
           <List disablePadding>
             {feature.children.map((children) => (
-              <ListItemButton key={children.name} style={{ marginLeft: "1rem" }}>
-                <ListItemText primary={children.name} />
-              </ListItemButton>
+              <div
+                key={children.name}
+                style={{ display: "flex", flexDirection: "column", width: "100%" }}>
+                <Link
+                  to={children.path!}
+                  sx={{
+                    "&:hover": {
+                      backgroundColor: "rgba(0, 0, 0, 0.04)",
+                    },
+                    color: "inherit !important",
+                    padding: "0.5rem 1rem",
+                    marginLeft: "1rem",
+                  }}>
+                  {children.name}
+                </Link>
+              </div>
             ))}
           </List>
         </Collapse>
