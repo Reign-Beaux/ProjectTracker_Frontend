@@ -1,8 +1,37 @@
-import { List, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
-import { Icon } from "application/components/elements";
+import { Collapse, List, ListItem, ListItemButton, ListItemText } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useMainLayoutContext } from "../../context";
+import { Feature } from "./models";
 import "./styles.css";
+import { Item } from "./components";
+
+const features: Feature[] = [
+  {
+    name: "Dashboard",
+    path: "/dashboard",
+    children: [],
+  },
+  {
+    name: "System",
+    children: [
+      {
+        name: "Users",
+        path: "/system/users",
+        children: [],
+      },
+      {
+        name: "Roles",
+        path: "/system/roles",
+        children: [],
+      },
+      {
+        name: "Features",
+        path: "/system/features",
+        children: [],
+      },
+    ],
+  },
+];
 
 export const Aside = () => {
   const { isOpenSidenav } = useMainLayoutContext();
@@ -20,14 +49,9 @@ export const Aside = () => {
   return (
     <aside className={asideClass}>
       <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <Icon type={index % 2 === 0 ? "inbox" : "main"} />
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
+        {features.map((feature) => (
+          <ListItem key={feature.name} disablePadding>
+            <Item feature={feature} />
           </ListItem>
         ))}
       </List>
