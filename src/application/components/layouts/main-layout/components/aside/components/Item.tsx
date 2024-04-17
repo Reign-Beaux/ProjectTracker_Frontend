@@ -1,50 +1,70 @@
 import { Collapse, List, ListItemButton, ListItemText } from "@mui/material";
-import { Icon, Link } from "application/components/elements";
-import { useState } from "react";
+import { Icon } from "application/components/elements";
+import { useNavigate } from "react-router-dom";
 import { Feature } from "../models";
 import "./styles.css";
 
 interface ItemProps {
   feature: Feature;
+  features: Feature[];
+  setFeatures: (features: Feature[]) => void;
 }
 
-export const Item = ({ feature }: ItemProps) => {
-  const [open, setOpen] = useState(false);
+export const Item = ({ feature, features, setFeatures }: ItemProps) => {
+  const navigate = useNavigate();
 
-  const expandItem = () => {
-    if (feature.children.length == 0) return;
+  const selectItem = (id: number, to: string) => {
+    let currentFeatures = [...features];
+    currentFeatures.forEach((currentFeature) => {
+      currentFeature.isSelected = currentFeature.id === id;
+      currentFeature.children.forEach((child) => {
+        child.isSelected = child.id === id;
+      });
+    });
+    setFeatures([...currentFeatures]);
+    navigate(to);
+  };
 
-    setOpen((prev) => !prev);
+  const openItem = (id: number) => {
+    let currentFeatures = [...features];
+    currentFeatures.forEach((currentFeature) => {
+      currentFeature.isOpen = currentFeature.id === id ? !currentFeature.isOpen : false;
+      currentFeature.children.forEach((child) => {
+        child.isOpen = currentFeature.id === id ? !currentFeature.isOpen : false;
+      });
+    });
+
+    setFeatures([...currentFeatures]);
   };
 
   return (
     <div style={{ display: "flex", flexDirection: "column", width: "100%" }}>
       {feature.children.length > 0 ? (
-        <ListItemButton onClick={expandItem}>
+        <ListItemButton onClick={() => openItem(feature.id)} className="item__button">
           <ListItemText primary={feature.name} />
-          <Icon type={open ? "expandLess" : "expandMore"} />
+          <Icon type={feature.isOpen ? "expandLess" : "expandMore"} />
         </ListItemButton>
       ) : (
-        <Link to={feature.path!} className="item__link">
-          {feature.name}
-        </Link>
+        <ListItemButton
+          onClick={() => selectItem(feature.id, feature.path!)}
+          className={"item__link" + (feature.isSelected ? " item--selected" : "")}>
+          <ListItemText primary={feature.name} />
+        </ListItemButton>
       )}
 
       {feature.children.length > 0 && (
-        <Collapse key={feature.name} in={open} timeout="auto" unmountOnExit>
+        <Collapse key={feature.id} in={feature.isOpen} timeout="auto" unmountOnExit>
           <List disablePadding>
             {feature.children.map((children) => (
               <div
-                key={children.name}
+                key={children.id}
                 style={{ display: "flex", flexDirection: "column", width: "100%" }}>
-                <Link
-                  to={children.path!}
-                  className="item__link"
-                  sx={{
-                    marginLeft: "1rem",
-                  }}>
-                  {children.name}
-                </Link>
+                <ListItemButton
+                  onClick={() => selectItem(children.id, children.path!)}
+                  className={"item__link" + (children.isSelected ? " item--selected" : "")}
+                  sx={{ marginLeft: "1rem" }}>
+                  <ListItemText primary={children.name} />
+                </ListItemButton>
               </div>
             ))}
           </List>

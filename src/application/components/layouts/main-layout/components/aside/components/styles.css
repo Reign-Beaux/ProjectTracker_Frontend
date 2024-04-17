@@ -3,6 +3,10 @@
   padding: 0.5rem 1rem;
 }
 
-.item__link:hover {
-  background-color: rgba(0, 0, 0, 0.04);
+.item__link:hover, .item__button:hover {
+  background-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+.item--selected {
+  background-color: rgba(0, 0, 0, 0.1) !important;
 }

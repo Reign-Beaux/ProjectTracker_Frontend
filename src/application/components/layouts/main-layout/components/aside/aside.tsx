@@ -1,34 +1,15 @@
 import { List, ListItem } from "@mui/material";
+import { useLayoutStore } from "application/settings/global-state";
 import { useEffect, useState } from "react";
 import { useMainLayoutContext } from "../../context";
 import { Item } from "./components";
-import { Feature } from "./models";
 import "./styles.css";
 
-const features: Feature[] = [
-  {
-    name: "Dashboard",
-    path: "/dashboard",
-    children: [],
-  },
-  {
-    name: "System",
-    children: [
-      {
-        name: "Users",
-        path: "/system/users",
-        children: [],
-      },
-      {
-        name: "Roles",
-        path: "/system/roles",
-        children: [],
-      },
-    ],
-  },
-];
-
 export const Aside = () => {
+  const {
+    props: { features },
+    setFeatures,
+  } = useLayoutStore();
   const { isOpenSidenav } = useMainLayoutContext();
   const [asideClass, setAsideClass] = useState("main-layout__aside");
 
@@ -41,12 +22,16 @@ export const Aside = () => {
     hideSidenav();
   }, [isOpenSidenav]);
 
+  useEffect(() => {
+    setFeatures([...features]);
+  }, []);
+
   return (
     <aside className={asideClass}>
       <List>
         {features.map((feature) => (
-          <ListItem key={feature.name} disablePadding>
-            <Item feature={feature} />
+          <ListItem key={feature.id} disablePadding>
+            <Item feature={feature} features={features} setFeatures={setFeatures} />
           </ListItem>
         ))}
       </List>
