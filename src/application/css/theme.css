@@ -1,10 +1,15 @@
 :root {
   --blue-1: hsl(210, 79%, 46%);
-  
+
   --white-1: hsl(0, 0%, 100%);
   --white-2: hsl(0, 0%, 90%);
 }
 
 body {
   background-color: var(--white-2);
+}
+
+.color-blue-1 {
+  background-color: var(--blue-1);
+  color: var(--white-1);
 }
