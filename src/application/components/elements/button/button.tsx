@@ -8,11 +8,9 @@ interface ButtonProps extends MuiButtonProps {
 
 export const Button = ({ children, isLoading, className, ...rest }: ButtonProps) => {
   const [buttonClass, setButtonClass] = useState("button");
-
+  console.log(buttonClass);
   useEffect(() => {
-    if (Boolean(className)) {
-      setButtonClass(`button ${className}`);
-    }
+    setButtonClass(`${Boolean(className) ? className : ""}`);
   }, []);
 
   return (

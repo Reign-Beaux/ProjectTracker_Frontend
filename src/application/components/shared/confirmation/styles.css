@@ -1,0 +1,10 @@
+.confirmation__title,
+.confirmation__actions {
+  padding: 16px 24px;
+}
+
+.confirmation__actions {
+  display: flex;
+  justify-content: end;
+  gap: 0.5rem;
+}

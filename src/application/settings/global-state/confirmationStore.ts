@@ -2,26 +2,25 @@ import { create } from "zustand";
 
 interface ConfirmationAction {
   label: string;
-  type: "success" | "error" | "info" | "warnign";
+  type: "success" | "error" | "info" | "warning";
   callback: () => void;
 }
 
-interface ConfirmationProps {
-  isOpen: boolean;
+export interface ConfirmationProps {
   title: string;
   message: string;
-  withDefaultButton: boolean
+  withDefaultButton: boolean;
   actions: ConfirmationAction[];
 }
 
 interface State {
+  isOpen: boolean;
   props: ConfirmationProps;
   initConfirmation: (props: ConfirmationProps) => void;
   closeConfirmation: () => void;
 }
 
 const confirmationPropsEmpty: ConfirmationProps = {
-  isOpen: false,
   title: "",
   message: "",
   withDefaultButton: true,
@@ -29,7 +28,12 @@ const confirmationPropsEmpty: ConfirmationProps = {
 };
 
 export const useConfirmationStore = create<State>((set) => ({
-  props: confirmationPropsEmpty,
-  initConfirmation: (props) => set((prev) => ({ ...prev, ...props })),
-  closeConfirmation: () => set((prev) => ({ ...prev, props: confirmationPropsEmpty })),
+  isOpen: false,
+  props: { ...confirmationPropsEmpty },
+  initConfirmation: (props: ConfirmationProps) => {
+    set((prev) => ({ ...prev, isOpen: true, props: { ...props } }));
+  },
+  closeConfirmation: () => {
+    set((prev) => ({ ...prev, isOpen: false, props: { ...confirmationPropsEmpty } }));
+  },
 }));
