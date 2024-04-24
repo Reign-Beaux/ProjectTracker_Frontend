@@ -7,3 +7,19 @@
 .filters__grid > * {
   grid-column: span 1; /* Hacer que todos los elementos ocupen una sola columna */
 }
+
+.filters__grid__container-button {
+  display: flex;
+  align-items: flex-end;
+  height: 3rem
+}
+
+.filters__grid > .filters__grid__container-button {
+  grid-column: span 1; /* El botón ocupará dos columnas */
+  grid-column-start: 3;
+}
+
+.filters__grid__container-button button {
+  height: 2.25rem;
+  width: 100%;
+}
