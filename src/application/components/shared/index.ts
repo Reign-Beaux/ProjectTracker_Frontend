@@ -1,2 +1,2 @@
 export * from './confirmation/confirmation';
-export * from './index';
+export * from './filters-container/filtersContainer';

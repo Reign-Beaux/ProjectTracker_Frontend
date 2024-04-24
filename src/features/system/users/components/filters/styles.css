@@ -2,13 +2,3 @@
   padding: 1rem;
   background-color: var(--white-1);
 }
-
-.user-filters__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Tres columnas de igual tamaño */
-  grid-gap: 0 1rem; /* Espacio entre las celdas de la cuadrícula */
-}
-
-.user-filters__grid > * {
-  grid-column: span 1; /* Hacer que todos los elementos ocupen una sola columna */
-}
