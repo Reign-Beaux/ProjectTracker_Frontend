@@ -4,7 +4,14 @@
 }
 
 .main-layout__main {
-  max-width: 91.75rem;
   flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.main-layout__main__section {
+  display: flex;
   padding: 1rem;
+  width: 100%;
+  max-width: 91.75rem;
 }

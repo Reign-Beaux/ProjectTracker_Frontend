@@ -18,7 +18,9 @@ export const MainLayout = ({ children, title }: MainLayoutProps) => {
       <Header />
       <div className="main-layout__container">
         <Aside />
-        <main className="main-layout__main">{children}</main>
+        <main className="main-layout__main">
+          <section className="main-layout__main__section">{children}</section>
+        </main>
       </div>
     </MainLayoutProvider>
   );
