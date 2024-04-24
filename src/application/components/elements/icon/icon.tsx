@@ -3,6 +3,7 @@ import ExpandMore from "@mui/icons-material/ExpandMore";
 import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
+import SearchIcon from '@mui/icons-material/Search';
 import { CircularProgress } from "@mui/material";
 import { ReactNode } from "react";
 
@@ -17,6 +18,7 @@ const IconsMapper: Record<string, ReactNode> = {
   menu: <MenuIcon />,
   inbox: <InboxIcon />,
   main: <MailIcon />,
+  search: <SearchIcon />,
 };
 
 export const Icon = ({ type }: IconsProps) => {

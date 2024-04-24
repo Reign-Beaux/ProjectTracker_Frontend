@@ -1,6 +1,6 @@
 import { useFiltersForm } from "./hooks"
 
-export const FiltersHandler = () => {
+export const useFiltersHandler = () => {
   const submitForm = async () => {
 
   }

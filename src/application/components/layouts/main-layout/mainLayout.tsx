@@ -17,7 +17,7 @@ export const MainLayout = ({ children, title }: MainLayoutProps) => {
       <Header />
       <div style={{ height: "calc(100vh - 4rem)", display: "flex" }}>
         <Aside />
-        <main>{children}</main>
+        <main style={{flex: 1, padding: "1rem"}}>{children}</main>
       </div>
     </MainLayoutProvider>
   );

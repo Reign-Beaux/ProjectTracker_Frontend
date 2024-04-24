@@ -13,7 +13,6 @@ export const Input = ({ inputKey, inputText, formSettings, ...rest }: InputProps
       id={inputKey}
       label={inputText}
       variant="standard"
-      fullWidth
       margin="normal"
       value={formSettings.values[inputKey]}
       onChange={formSettings.handleChange}

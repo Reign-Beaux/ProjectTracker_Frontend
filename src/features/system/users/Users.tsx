@@ -1,9 +1,10 @@
 import { MainLayout } from "application/components/layouts";
+import { Filters } from "./components";
 
 export const Users = () => {
   return (
     <MainLayout title="Users">
-      <div className="filters-container"></div>
+      <Filters />
       <div className="table-container"></div>
     </MainLayout>
   );
