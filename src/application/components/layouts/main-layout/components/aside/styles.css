@@ -6,6 +6,6 @@
   transition: margin 0.3s ease;  
 }
 
-.main-layout__aside.show-aside {
+.main-layout__aside.hide-aside {
   margin-left: -12.5rem;
 }

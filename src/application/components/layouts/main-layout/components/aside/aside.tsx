@@ -14,7 +14,7 @@ export const Aside = () => {
   const [asideClass, setAsideClass] = useState("main-layout__aside");
 
   const hideSidenav = () => {
-    const currentClass = isOpenSidenav ? "main-layout__aside show-aside" : "main-layout__aside";
+    const currentClass = isOpenSidenav ? "main-layout__aside hide-aside" : "main-layout__aside";
     setAsideClass(currentClass);
   };
 
