@@ -1,0 +1,10 @@
+.main-layout__container {
+  height: calc(100vh - 4rem);
+  display: flex;
+}
+
+.main-layout__main {
+  max-width: 91.75rem;
+  flex: 1;
+  padding: 1rem;
+}

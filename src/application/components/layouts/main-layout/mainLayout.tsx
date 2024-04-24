@@ -1,6 +1,7 @@
 import { ReactNode, useEffect } from "react";
 import { Aside, Header } from "./components";
 import { MainLayoutProvider } from "./context";
+import "./styles.css";
 
 interface MainLayoutProps {
   children: ReactNode;
@@ -15,9 +16,9 @@ export const MainLayout = ({ children, title }: MainLayoutProps) => {
   return (
     <MainLayoutProvider>
       <Header />
-      <div style={{ height: "calc(100vh - 4rem)", display: "flex" }}>
+      <div className="main-layout__container">
         <Aside />
-        <main style={{flex: 1, padding: "1rem"}}>{children}</main>
+        <main className="main-layout__main">{children}</main>
       </div>
     </MainLayoutProvider>
   );
