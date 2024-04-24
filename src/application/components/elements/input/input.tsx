@@ -1,11 +1,10 @@
 import { StandardTextFieldProps, TextField } from "@mui/material";
-import { FormSettings } from "application/settings/forms/models";
 
 export interface InputProps extends StandardTextFieldProps {
   inputKey: string;
   inputText: string;
   clereable?: boolean;
-  formSettings: FormSettings;
+  formSettings: any;
 }
 
 export const Input = ({ inputKey, inputText, formSettings, ...rest }: InputProps) => {

@@ -1,13 +1,12 @@
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { IconButton, InputAdornment, StandardTextFieldProps } from "@mui/material";
-import { FormSettings } from "application/settings/forms/models";
 import { useState } from "react";
 import { Input } from "../input/input";
 
 interface InputPasswordProps extends StandardTextFieldProps {
   inputKey: string;
   inputText: string;
-  formSettings: FormSettings;
+  formSettings: any;
 }
 
 export const InputPassword = ({
