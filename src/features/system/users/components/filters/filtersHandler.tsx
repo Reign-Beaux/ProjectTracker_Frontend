@@ -1,11 +1,18 @@
-import { useFiltersForm } from "./hooks"
+import { useUserService } from "../../services";
+import { useFiltersForm } from "./hooks";
+import { UserFilter } from "./models";
 
 export const useFiltersHandler = () => {
-  const submitForm = async () => {
-    alert(":D")
-  }
+  const { getByFilters } = useUserService();
 
-  const filtersForm = useFiltersForm({ submitForm })
+  const submitForm = async (values: UserFilter) => {
+    try {
+      const response = await getByFilters(values);
+      console.log(response)
+    } catch (error: any) {}
+  };
 
-  return { ...filtersForm }
-}
+  const filtersForm = useFiltersForm({ submitForm });
+
+  return { ...filtersForm };
+};
