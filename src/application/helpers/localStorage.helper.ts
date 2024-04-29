@@ -1,3 +1,7 @@
+export enum LocalStorageKeys {
+  TOKEN_SESSION = "tokenSession"
+}
+
 export const localStorageSave = (key: string, data: string) => {
   localStorage.setItem(key, data);
 };
