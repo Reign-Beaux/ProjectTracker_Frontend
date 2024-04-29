@@ -2,7 +2,17 @@ import axios, { AxiosResponse } from "axios";
 import { useEffect } from "react";
 import { useInterceptor } from ".";
 
-export const useHttpClient = () => {
+export interface Response {
+  status: number;
+  message: string;
+  errors: any;
+}
+
+export interface ResponseData<T> extends Response {
+  data: T;
+}
+
+export const useAxios = () => {
   useInterceptor();
   const abortController = new AbortController();
   const signal = abortController.signal;
