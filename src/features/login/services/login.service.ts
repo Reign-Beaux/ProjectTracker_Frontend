@@ -1,4 +1,4 @@
-import { ResponseData, useHttpClient } from "application/settings/http-client";
+import { ResponseData, useAxios } from "application/libs/axios";
 import { AuthResponse, CredentialsRequest } from "../components/login-form/models";
 
 enum LoginEndpoints {
@@ -6,7 +6,7 @@ enum LoginEndpoints {
 }
 
 export const useLoginService = () => {
-  const { post } = useHttpClient();
+  const { post } = useAxios();
 
   const sendCredentials = async (payload: CredentialsRequest) => {
     const response = await post<ResponseData<AuthResponse>, CredentialsRequest>(
