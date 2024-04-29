@@ -3,5 +3,9 @@ import { useUserTableHandler } from "./userTable.handler";
 
 export const UserTable = () => {
   const { columns } = useUserTableHandler();
-  return <Table dataSource={[]} columns={columns} />;
+  return (
+    <div>
+      <Table dataSource={[]} columns={columns} />
+    </div>
+  );
 };

@@ -1,6 +1,6 @@
 .user-filters-form {
   padding: 1rem;
   background-color: var(--white-1);
-  width: 100%;
+  width: calc(100% - 2rem);
   height: fit-content;
 }
