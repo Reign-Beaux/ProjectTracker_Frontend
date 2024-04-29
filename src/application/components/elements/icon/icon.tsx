@@ -1,3 +1,5 @@
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from "@mui/icons-material/Edit";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import MailIcon from "@mui/icons-material/Mail";
@@ -12,6 +14,8 @@ interface IconsProps {
 }
 
 const IconsMapper: Record<string, ReactNode> = {
+  delete: <DeleteIcon />,
+  edit: <EditIcon />,
   expandLess: <ExpandLess />,
   expandMore: <ExpandMore />,
   loader: <CircularProgress size={24} />,
