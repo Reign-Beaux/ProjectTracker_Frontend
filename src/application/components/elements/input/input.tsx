@@ -14,6 +14,7 @@ export const Input = ({ inputKey, inputText, formSettings, ...rest }: InputProps
       label={inputText}
       variant="standard"
       margin="normal"
+      fullWidth
       value={formSettings.values[inputKey]}
       onChange={formSettings.handleChange}
       onBlur={formSettings.handleBlur}
