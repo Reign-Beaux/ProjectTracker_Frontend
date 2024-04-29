@@ -1,7 +1,14 @@
 import { Dashboard, Login, Roles, Users } from "@/features";
 import { Navigate, RouteObject, createBrowserRouter } from "react-router-dom";
-import { PagePaths } from "./static";
 import { AuthGuard } from "./guards";
+
+export enum PagePaths {
+  DASHBOARD = "/dashboard",
+  ERROR_PATH = "*",
+  LOGIN = "/login",
+  SYSTEM_USERS = "/system/users",
+  SYSTEM_ROLES = "/system/roles",
+}
 
 const routes: RouteObject[] = [
   {
