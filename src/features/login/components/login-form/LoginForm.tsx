@@ -17,11 +17,13 @@ export const LoginForm = () => {
             inputKey="usernameOrEmail"
             inputText="Usuario o Email"
             formSettings={credentialsForm}
+            fullWidth
           />
           <InputPassword
             inputKey="password"
             inputText="Contraseña"
             formSettings={credentialsForm}
+            fullWidth
           />
           <Button className="login-form__button" type="submit">
             Acceder
