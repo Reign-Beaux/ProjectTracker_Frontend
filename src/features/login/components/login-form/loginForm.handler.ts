@@ -2,7 +2,7 @@ import { LocalStorageKeys, encryptData, localStorageSave } from "application/hel
 import { PagePaths } from "application/libs/react-router-dom";
 import { useSnackbarStore } from "application/libs/zustand";
 import { useNavigate } from "react-router-dom";
-import { useLoginService } from "../../services";
+import { useLoginService } from "../../login.service";
 import { CredentialsRequest } from "./dtos/requests";
 import { useCredentialsForm } from "./hooks";
 
