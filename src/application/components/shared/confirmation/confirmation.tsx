@@ -1,6 +1,6 @@
 import { DialogContent, Typography } from "@mui/material";
 import { Button, Dialog } from "application/components/elements";
-import { useConfirmationStore } from "application/settings/global-state";
+import { useConfirmationStore } from "application/libs/zustand";
 import "./styles.css";
 
 export const Confirmation = () => {

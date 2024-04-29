@@ -1,5 +1,5 @@
 import { List, ListItem } from "@mui/material";
-import { useLayoutStore } from "application/settings/global-state";
+import { useLayoutStore } from "application/libs/zustand";
 import { useEffect, useState } from "react";
 import { useMainLayoutContext } from "../../context";
 import { Item } from "./components";

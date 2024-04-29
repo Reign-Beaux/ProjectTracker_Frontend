@@ -1,6 +1,6 @@
 import { Input } from "application/components/elements";
 import { FiltersContainer } from "application/components/shared";
-import { useFiltersHandler } from "./filters.Handler";
+import { useFiltersHandler } from "./filters.handler";
 import "./styles.css";
 
 export const Filters = () => {
