@@ -1,6 +1,6 @@
-import { UserFilter, userFilterEmpty } from "../models";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { UserFilter, userFilterEmpty } from "../dtos/requests";
 
 interface FiltersFormProps {
   submitForm: (values: UserFilter) => Promise<void>;
@@ -20,4 +20,4 @@ export const useFiltersForm = ({ submitForm }: FiltersFormProps) => {
   });
 
   return { ...filtersForm };
-}
+};

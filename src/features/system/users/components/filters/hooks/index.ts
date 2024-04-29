@@ -1,1 +1,1 @@
-export * from './filtersForm';
+export * from './filtersForm.hook';

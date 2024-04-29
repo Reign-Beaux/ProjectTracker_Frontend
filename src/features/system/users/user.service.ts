@@ -1,5 +1,5 @@
 import { ResponseData, useAxios } from "application/libs/axios";
-import { UserFilter } from "./components/filters/models";
+import { UserFilter } from "./components/filters/dtos";
 import { User } from "./models";
 
 enum UserEndpoint {

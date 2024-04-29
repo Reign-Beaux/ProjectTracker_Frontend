@@ -1,6 +1,6 @@
-import { useUserService } from "../../services";
+import { useUserService } from "../../user.service";
+import { UserFilter } from "./dtos/requests";
 import { useFiltersForm } from "./hooks";
-import { UserFilter } from "./models";
 
 export const useFiltersHandler = () => {
   const { getByFilters } = useUserService();
