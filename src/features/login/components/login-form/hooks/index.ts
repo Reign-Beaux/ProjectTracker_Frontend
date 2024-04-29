@@ -1,1 +1,1 @@
-export * from './credentialsForm';
+export * from './credentialsForm.hook';
