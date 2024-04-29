@@ -1,10 +1,10 @@
 import { Input } from "application/components/elements";
 import { FiltersContainer } from "application/components/shared";
-import { useFiltersHandler } from "./usersFilters.handler";
 import "./styles.css";
+import { useUsersFiltersHandler } from "./usersFilters.handler";
 
-export const Filters = () => {
-  const filtersForm = useFiltersHandler();
+export const UsersFilters = () => {
+  const filtersForm = useUsersFiltersHandler();
 
   return (
     <form className="user-filters-form" onSubmit={filtersForm.handleSubmit}>
