@@ -1,6 +1,6 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { CredentialsRequest, credentialsRequestEmpty } from "../models";
+import { CredentialsRequest, credentialsRequestEmpty } from "../dtos";
 
 export interface CredentialsFormProps {
   submitCredentialsForm: (values: CredentialsRequest) => Promise<void>;

@@ -5,7 +5,7 @@ import { PagePaths } from "application/settings/routes";
 import { useNavigate } from "react-router-dom";
 import { useLoginService } from "../../services";
 import { useCredentialsForm } from "./hooks";
-import { CredentialsRequest } from "./models";
+import { CredentialsRequest } from "./dtos";
 
 export const useLoginFormHandler = () => {
   const { showSnackbar } = useSnackbarStore();

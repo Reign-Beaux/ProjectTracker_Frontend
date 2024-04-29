@@ -1,5 +1,5 @@
 import { ResponseData, useAxios } from "application/libs/axios";
-import { AuthResponse, CredentialsRequest } from "../components/login-form/models";
+import { AuthResponse, CredentialsRequest } from "../components/login-form/dtos";
 
 enum LoginEndpoints {
   LOGIN = "Auth/Login",
