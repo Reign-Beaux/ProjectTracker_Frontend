@@ -1,11 +1,10 @@
-import { encryptData, localStorageSave } from "application/helpers";
-import { LocalStorageKeys } from "application/helpers/local-storage/localStorageKeys";
-import { useSnackbarStore } from "application/settings/global-state";
-import { PagePaths } from "application/settings/routes";
+import { LocalStorageKeys, encryptData, localStorageSave } from "application/helpers";
+import { PagePaths } from "application/libs/react-router-dom";
+import { useSnackbarStore } from "application/libs/zustand";
 import { useNavigate } from "react-router-dom";
 import { useLoginService } from "../../services";
+import { CredentialsRequest } from "./dtos/requests";
 import { useCredentialsForm } from "./hooks";
-import { CredentialsRequest } from "./dtos";
 
 export const useLoginFormHandler = () => {
   const { showSnackbar } = useSnackbarStore();
