@@ -1,8 +1,8 @@
 import { Table } from "application/components/elements";
-import { useUserTableHandler } from "./userTable.handler";
+import { useUsersTableHandler } from "./usersTable.handler";
 
-export const UserTable = () => {
-  const { columns } = useUserTableHandler();
+export const UsersTable = () => {
+  const { columns } = useUsersTableHandler();
   return (
     <div>
       <Table dataSource={[]} columns={columns} />

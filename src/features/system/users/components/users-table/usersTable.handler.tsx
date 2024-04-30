@@ -65,7 +65,7 @@ const columnsSettings = (update: Function, remove: Function): GridColDef[] => {
   ];
 };
 
-export const useUserTableHandler = () => {
+export const useUsersTableHandler = () => {
   const getDataSource = () => {
     console.log("getDataSource");
   };

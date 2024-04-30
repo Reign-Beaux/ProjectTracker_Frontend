@@ -1,11 +1,11 @@
 import { MainLayout } from "application/components/layouts";
-import { UsersFilters, UserTable } from "./components";
+import { UsersFilters, UsersTable } from "./components";
 
 export const Users = () => {
   return (
     <MainLayout title="Users">
       <UsersFilters />
-      <UserTable />
+      <UsersTable />
     </MainLayout>
   );
 };
