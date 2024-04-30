@@ -1,7 +1,6 @@
-export interface UserModel {
+export interface UserTable {
   id: number,
   userName: string;
-  password: string;
   email: string;
   name: string;
   paternalLastname: string;
