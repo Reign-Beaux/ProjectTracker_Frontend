@@ -3,7 +3,7 @@ import {
   ButtonProps as MuiButtonProps,
   IconButton as MuiIconButton,
 } from "@mui/material";
-import { ReactNode, Ref, forwardRef, useEffect, useState } from "react";
+import { Ref, forwardRef, useEffect, useState } from "react";
 import { Icon } from "..";
 
 interface ButtonProps extends MuiButtonProps {
