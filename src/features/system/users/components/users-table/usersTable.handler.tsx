@@ -1,6 +1,6 @@
 import { GridColDef, GridRenderCellParams } from "@mui/x-data-grid";
+import { IconButton, Tooltip } from "application/components/elements";
 import { useUsersContext } from "../../users.context";
-import { Icon, IconButton, Tooltip } from "application/components/elements";
 
 export const useUsersTableHandler = () => {
   const { usersTable } = useUsersContext();
