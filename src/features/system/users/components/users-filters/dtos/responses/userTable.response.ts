@@ -1,6 +1,6 @@
 export interface UserTable {
   id: number;
-  userName: string;
+  username: string;
   email: string;
   name: string;
   paternalLastname: string;
