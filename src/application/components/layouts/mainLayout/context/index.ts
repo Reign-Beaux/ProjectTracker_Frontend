@@ -1,1 +1,1 @@
-export * from './main.layout.context';
+export * from './mainLayout.context';
