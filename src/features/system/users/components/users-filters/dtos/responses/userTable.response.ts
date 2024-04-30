@@ -6,12 +6,3 @@ export interface UserTable {
   paternalLastname: string;
   maternalLastnam: string;
 }
-
-export const userTableEmpty: UserTable = {
-  id: 0,
-  userName: "",
-  email: "",
-  name: "",
-  paternalLastname: "",
-  maternalLastnam: "",
-};
