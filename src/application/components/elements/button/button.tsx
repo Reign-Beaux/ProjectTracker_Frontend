@@ -2,9 +2,8 @@ import {
   Button as MuiButton,
   ButtonProps as MuiButtonProps,
   IconButton as MuiIconButton,
-  IconButtonProps as MuiIconButtonProps,
 } from "@mui/material";
-import { useEffect, useState } from "react";
+import { ReactNode, Ref, forwardRef, useEffect, useState } from "react";
 import { Icon } from "..";
 
 interface ButtonProps extends MuiButtonProps {
@@ -25,8 +24,19 @@ export const Button = ({ children, isLoading, className, ...rest }: ButtonProps)
   );
 };
 
-interface IconButtonProps extends MuiIconButtonProps {}
+interface IconButtonProps {
+  ariaLabel: string;
+  typeIcon: string;
+  onClick: () => void;
+}
 
-export const IconButton = ({ children, ...props }: IconButtonProps) => {
-  return <MuiIconButton {...props}>{children}</MuiIconButton>;
-};
+export const IconButton = forwardRef<HTMLDivElement, IconButtonProps>(function IconButton(
+  { ariaLabel, typeIcon, onClick }: IconButtonProps,
+  ref: Ref<HTMLDivElement>
+) {
+  return (
+    <MuiIconButton aria-label={ariaLabel} onClick={onClick}>
+      <Icon type={typeIcon} />
+    </MuiIconButton>
+  );
+});

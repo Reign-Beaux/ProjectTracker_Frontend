@@ -1,6 +1,6 @@
 import { GridColDef, GridRenderCellParams } from "@mui/x-data-grid";
-import { Icon, IconButton, Tooltip } from "application/components/elements";
 import { useUsersContext } from "../../users.context";
+import { Icon, IconButton, Tooltip } from "application/components/elements";
 
 export const useUsersTableHandler = () => {
   const { usersTable } = useUsersContext();
@@ -70,14 +70,18 @@ export const useUsersTableHandler = () => {
         renderCell: (params: GridRenderCellParams) => (
           <>
             <Tooltip title="Actualizar área">
-              <IconButton aria-label="update-student" onClick={() => update(params.row.id)}>
-                <Icon type="edit" />
-              </IconButton>
+              <IconButton
+                ariaLabel="update-student"
+                onClick={() => update(params.row.id)}
+                typeIcon="edit"
+              />
             </Tooltip>
             <Tooltip title="Eliminar área">
-              <IconButton aria-label="delete-subject" onClick={() => remove(params.row.id)}>
-                <Icon type="delete" />
-              </IconButton>
+              <IconButton
+                ariaLabel="delete-subject"
+                onClick={() => remove(params.row.id)}
+                typeIcon="delete"
+              />
             </Tooltip>
           </>
         ),
