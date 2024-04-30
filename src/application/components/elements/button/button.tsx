@@ -32,7 +32,7 @@ interface IconButtonProps {
 
 export const IconButton = forwardRef<HTMLDivElement, IconButtonProps>(function IconButton(
   { ariaLabel, typeIcon, onClick }: IconButtonProps,
-  ref: Ref<HTMLDivElement>
+  _: Ref<HTMLDivElement>
 ) {
   return (
     <MuiIconButton aria-label={ariaLabel} onClick={onClick}>
