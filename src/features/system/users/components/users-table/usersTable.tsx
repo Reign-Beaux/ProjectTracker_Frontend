@@ -2,10 +2,10 @@ import { Table } from "application/components/elements";
 import { useUsersTableHandler } from "./usersTable.handler";
 
 export const UsersTable = () => {
-  const { columns } = useUsersTableHandler();
+  const { columns, usersTable } = useUsersTableHandler();
   return (
     <div>
-      <Table dataSource={[]} columns={columns} />
+      <Table dataSource={usersTable} columns={columns} />
     </div>
   );
 };
