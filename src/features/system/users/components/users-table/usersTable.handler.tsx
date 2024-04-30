@@ -6,13 +6,13 @@ import { Icon, Tooltip } from "application/components/elements";
 export const useUsersTableHandler = () => {
   const { usersTable } = useUsersContext();
 
-  const getDataSource = () => {
-    console.log("getDataSource");
-  };
+  // const getDataSource = () => {
+  //   console.log("getDataSource");
+  // };
 
-  const insertRecord = () => {
-    console.log("insertRecord");
-  };
+  // const insertRecord = () => {
+  //   console.log("insertRecord");
+  // };
 
   const updateRecord = () => {
     console.log("updateRecord");
