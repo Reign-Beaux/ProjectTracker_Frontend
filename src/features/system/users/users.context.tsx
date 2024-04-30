@@ -1,4 +1,12 @@
-import { Context, ReactNode, createContext, useContext, useState } from "react";
+import {
+  Context,
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  createContext,
+  useContext,
+  useState,
+} from "react";
 import { UserTable } from "./components/users-filters/dtos/responses";
 
 interface ProviderProps {
@@ -7,7 +15,7 @@ interface ProviderProps {
 
 interface ContextProps {
   usersTable: UserTable[];
-  setUsersTable: Function;
+  setUsersTable: Dispatch<SetStateAction<UserTable[]>>;
 }
 
 const contextEmpty: ContextProps = {
