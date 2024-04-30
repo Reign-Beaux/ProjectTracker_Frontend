@@ -1,9 +1,9 @@
-import { useUserService } from "../../user.service";
+import { useUsersService } from "../../users.service";
 import { UserFilter } from "./dtos/requests";
 import { useFiltersForm } from "./hooks";
 
 export const useUsersFiltersHandler = () => {
-  const { getByFilters } = useUserService();
+  const { getByFilters } = useUsersService();
 
   const submitForm = async (values: UserFilter) => {
     try {
