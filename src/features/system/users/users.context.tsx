@@ -1,36 +1,34 @@
-import {
-  Context,
-  Dispatch,
-  ReactNode,
-  SetStateAction,
-  createContext,
-  useContext,
-  useState,
-} from "react";
+import { Context, ReactNode, createContext, useContext, useState } from "react";
 import { UserTable } from "./components/users-filters/dtos/responses";
 
 interface ProviderProps {
   children: ReactNode;
 }
 
-interface ContextProps {
+interface StateProps {
   usersTable: UserTable[];
-  setUsersTable: Dispatch<SetStateAction<UserTable[]>>;
 }
 
-const contextEmpty: ContextProps = {
+interface StateContext {
+  state: StateProps;
+  setState: (state: StateProps) => void;
+}
+
+const stateEmpty: StateProps = {
   usersTable: [],
-  setUsersTable: () => {},
 };
 
-const UsersContext: Context<ContextProps> = createContext({ ...contextEmpty });
+const stateContextEmpty: StateContext = {
+  state: stateEmpty,
+  setState: () => {},
+};
+
+const UsersContext: Context<StateContext> = createContext({ ...stateContextEmpty });
 
 export const UsersProvider = ({ children }: ProviderProps) => {
-  const [usersTable, setUsersTable] = useState<UserTable[]>([]);
+  const [state, setState] = useState({ ...stateEmpty });
 
-  return (
-    <UsersContext.Provider value={{ usersTable, setUsersTable }}>{children}</UsersContext.Provider>
-  );
+  return <UsersContext.Provider value={{ state, setState }}>{children}</UsersContext.Provider>;
 };
 
 export const useUsersContext = () => {
