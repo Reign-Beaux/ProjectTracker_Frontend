@@ -1,4 +1,10 @@
-import { Context, ReactNode, createContext, useContext, useState } from "react";
+import {
+  Context,
+  ReactNode,
+  createContext,
+  useContext,
+  useState
+} from "react";
 import { UserTable } from "./components/users-filters/dtos/responses";
 
 interface ProviderProps {
@@ -11,7 +17,7 @@ interface StateProps {
 
 interface StateContext {
   state: StateProps;
-  setState: (state: StateProps) => void;
+  setState: (newState: StateProps) => void;
 }
 
 const stateEmpty: StateProps = {
@@ -28,7 +34,13 @@ const UsersContext: Context<StateContext> = createContext({ ...stateContextEmpty
 export const UsersProvider = ({ children }: ProviderProps) => {
   const [state, setState] = useState({ ...stateEmpty });
 
-  return <UsersContext.Provider value={{ state, setState }}>{children}</UsersContext.Provider>;
+  const handleSetState = (newState: StateProps) => {
+    setState((prev) => {
+      return { ...prev, ...newState };
+    });
+  };
+
+  return <UsersContext.Provider value={{ state, setState: handleSetState }}>{children}</UsersContext.Provider>;
 };
 
 export const useUsersContext = () => {

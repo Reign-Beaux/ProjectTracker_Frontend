@@ -4,13 +4,13 @@ import { UserFilter } from "./dtos/requests";
 import { useFiltersForm } from "./hooks";
 
 export const useUsersFiltersHandler = () => {
-  const { setUsersTable } = useUsersContext();
+  const { setState } = useUsersContext();
   const { getByFilters } = useUsersService();
 
   const submitForm = async (values: UserFilter) => {
     try {
       const response = await getByFilters(values);
-      setUsersTable(response);
+      setState({ usersTable: response });
     } catch (error: any) {}
   };
 
