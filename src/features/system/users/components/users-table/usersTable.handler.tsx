@@ -4,7 +4,7 @@ import { IconButton } from "@mui/material";
 import { Icon, Tooltip } from "application/components/elements";
 
 export const useUsersTableHandler = () => {
-  const { usersTable } = useUsersContext();
+  const { state: { usersTable } } = useUsersContext();
 
   // const getDataSource = () => {
   //   console.log("getDataSource");
