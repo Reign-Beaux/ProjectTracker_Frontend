@@ -16,7 +16,7 @@ interface TableSettings {
   dataSource: GridValidRowModel[];
   sortByDefault: string;
   columns: GridColDef[];
-  getDataSource: () => GridValidRowModel[];
+  getDataSource: (pagination: Pagination, sort: GridSortModel) => GridValidRowModel[];
 }
 
 const pageSizeOptions = [10, 30, 50];
@@ -34,7 +34,7 @@ export const useTable = ({ sortByDefault, dataSource, columns, getDataSource }: 
   ]);
 
   useEffect(() => {
-    getDataSource();
+    getDataSource(pagination, sort);
   }, [pagination, sort]);
 
   return {

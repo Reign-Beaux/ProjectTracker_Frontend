@@ -1,6 +1,7 @@
 import { IconButton } from "@mui/material";
-import { GridColDef, GridRenderCellParams } from "@mui/x-data-grid";
+import { GridColDef, GridRenderCellParams, GridSortModel } from "@mui/x-data-grid";
 import { Icon, Tooltip, useTable } from "application/components/elements";
+import { Pagination } from "application/components/elements/table/models";
 import { useUsersContext } from "../../users.context";
 
 export const useUsersTableHandler = () => {
@@ -9,9 +10,9 @@ export const useUsersTableHandler = () => {
     // setState,
   } = useUsersContext();
 
-  const getDataSource = () => {
+  const getDataSource = (pagination: Pagination, sort: GridSortModel) => {
     return [];
-  }
+  };
 
   const updateRecord = () => {
     console.log("updateRecord");
@@ -87,14 +88,12 @@ export const useUsersTableHandler = () => {
 
   const columns = columnsSettings(updateRecord, deleteRecord);
 
-  const tableProps = useTable(
-    {
-      dataSource: usersTable,
-      sortByDefault: "username",
-      columns: columns,
-      getDataSource: getDataSource
-    }
-  );
+  const tableProps = useTable({
+    dataSource: usersTable,
+    sortByDefault: "username",
+    columns: columns,
+    getDataSource: getDataSource,
+  });
 
   return tableProps;
 };
