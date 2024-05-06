@@ -1,7 +1,7 @@
 import { Context, ReactNode, createContext, useContext, useState } from "react";
 import { UserFilter, userFilterEmpty } from "./components/users-filters/dtos/requests";
 import { UserTable } from "./components/users-filters/dtos/responses";
-import { TableSettings } from "application/components/elements/table/table.handler";
+// import { TableSettings } from "application/components/elements/table/table.handler";
 
 interface ProviderProps {
   children: ReactNode;
@@ -10,7 +10,7 @@ interface ProviderProps {
 export interface StateProps {
   usersTable: UserTable[];
   usersFilter: UserFilter;
-  usersTableSettings: TableSettings;
+  // usersTableSettings: TableSettings;
 }
 
 interface StateContext {
@@ -21,7 +21,7 @@ interface StateContext {
 const stateEmpty: StateProps = {
   usersTable: [],
   usersFilter: { ...userFilterEmpty },
-  usersTableSettings: {} as TableSettings
+  // usersTableSettings: {} as TableSettings
 };
 
 const stateContextEmpty: StateContext = {
