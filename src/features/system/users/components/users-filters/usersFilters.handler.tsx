@@ -1,4 +1,4 @@
-import { useUsersContext } from "../../users.context";
+import { StateProps, useUsersContext } from "../../users.context";
 import { useUsersService } from "../../users.service";
 import { UserFilter } from "./dtos/requests";
 import { useFiltersForm } from "./hooks";
@@ -10,7 +10,7 @@ export const useUsersFiltersHandler = () => {
   const submitForm = async (values: UserFilter) => {
     try {
       const response = await getByFilters(values);
-      setState({ usersTable: response });
+      setState({ usersTable: response } as StateProps);
     } catch (error: any) {}
   };
 

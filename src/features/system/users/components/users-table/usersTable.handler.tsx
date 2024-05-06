@@ -1,10 +1,16 @@
 import { GridColDef, GridRenderCellParams } from "@mui/x-data-grid";
-import { useUsersContext } from "../../users.context";
+import { StateProps, useUsersContext } from "../../users.context";
 import { IconButton } from "@mui/material";
 import { Icon, Tooltip } from "application/components/elements";
+import { useTableHandler } from "application/components/elements/table/table.handler";
+import { useEffect } from "react";
 
 export const useUsersTableHandler = () => {
-  const { state: { usersTable } } = useUsersContext();
+  const {
+    state: { usersTable },
+    setState,
+  } = useUsersContext();
+  const { settings } = useTableHandler("username");
 
   // const getDataSource = () => {
   //   console.log("getDataSource");
@@ -87,6 +93,10 @@ export const useUsersTableHandler = () => {
   };
 
   const columns = columnsSettings(updateRecord, deleteRecord);
+
+  useEffect(() => {
+    setState({ usersTableSettings: settings } as StateProps);
+  }, []);
 
   return {
     columns,
