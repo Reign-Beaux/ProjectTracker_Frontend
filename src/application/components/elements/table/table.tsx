@@ -15,7 +15,6 @@ const StyledGridOverlay = styled("div")(({ theme }) => ({
   alignItems: "center",
   justifyContent: "center",
   height: "100%",
-  padding: "5rem",
   "& .ant-empty-img-1": {
     fill: theme.palette.mode === "light" ? "#aeb8c2" : "#262626",
   },
@@ -113,7 +112,6 @@ export const Table = ({ dataSource, columns }: TableProps) => {
       showCellVerticalBorder
       getRowId={(row: any) => (row.id === 0 ? row.record : row.id)}
       localeText={{
-        // noRowsLabel: "No se ha encontrado ningún registro",
         MuiTablePagination: {
           labelDisplayedRows: ({ from, to, count }) => `${from} - ${to} de ${count}`,
           labelRowsPerPage: "Registros por páginas",

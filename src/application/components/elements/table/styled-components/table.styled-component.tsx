@@ -8,7 +8,5 @@ export const TableStyledComponent = styled(DataGrid)`
   .MuiDataGrid-columnHeader:focus-within {
     outline: none;
   }
-  .MuiDataGrid-overlayWrapper {
-    min-height: 10rem;
-  }
+  --DataGrid-overlayHeight: 50vh
 `;
