@@ -30,7 +30,9 @@ export const Table = ({
       columns={columns}
       pageSizeOptions={pageSizeOptions}
       paginationModel={pagination}
-      onPaginationModelChange={setPagination}      
+      onPaginationModelChange={setPagination}    
+      sortModel={sort}  
+      onSortModelChange={setSort}
       disableRowSelectionOnClick
       autoHeight
       showColumnVerticalBorder

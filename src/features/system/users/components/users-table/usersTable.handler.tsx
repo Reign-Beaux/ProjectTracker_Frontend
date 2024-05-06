@@ -6,7 +6,7 @@ import { useUsersContext } from "../../users.context";
 export const useUsersTableHandler = () => {
   const {
     state: { usersTable },
-    setState,
+    // setState,
   } = useUsersContext();
 
   const getDataSource = () => {
