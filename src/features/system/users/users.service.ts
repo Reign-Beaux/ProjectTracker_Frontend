@@ -1,6 +1,6 @@
 import { ResponseData, useAxios } from "application/libs/axios";
-import { UserFilter } from "./components/users-filters/dtos/requests";
 import { UserTable } from "./components/users-filters/dtos/responses";
+import { UserGetByFiltersRequest } from "./dtos/requests";
 
 enum UserEndpoint {
   GET_BY_FILTERS = "Users/GetByFilters",
@@ -9,8 +9,8 @@ enum UserEndpoint {
 export const useUsersService = () => {
   const { post } = useAxios();
 
-  const getByFilters = async (payload: UserFilter) => {
-    const response = await post<ResponseData<UserTable[]>, UserFilter>(
+  const getByFilters = async (payload: UserGetByFiltersRequest) => {
+    const response = await post<ResponseData<UserTable[]>, UserGetByFiltersRequest>(
       UserEndpoint.GET_BY_FILTERS,
       payload
     );

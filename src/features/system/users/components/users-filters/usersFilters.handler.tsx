@@ -1,15 +1,21 @@
+import { UserGetByFiltersRequest } from "../../dtos/requests";
 import { StateProps, useUsersContext } from "../../users.context";
 import { useUsersService } from "../../users.service";
-import { UserFilter } from "./dtos/requests";
 import { useFiltersForm } from "./hooks";
 
 export const useUsersFiltersHandler = () => {
-  const { setState } = useUsersContext();
+  const {
+    state: { usersFilter, pagination, sort },
+    setState,
+  } = useUsersContext();
   const { getByFilters } = useUsersService();
 
-  const submitForm = async (values: UserFilter) => {
+  const submitForm = async () => {
     try {
-      const response = await getByFilters(values);
+      const payload: UserGetByFiltersRequest = {
+        ...{ usersFilter, pagination, sort }
+      }
+      const response = await getByFilters(payload);
       setState({ usersTable: response } as StateProps);
     } catch (error: any) {}
   };

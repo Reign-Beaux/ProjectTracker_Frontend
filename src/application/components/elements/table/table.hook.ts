@@ -1,5 +1,5 @@
 import { GridColDef, GridSortModel, GridValidRowModel } from "@mui/x-data-grid";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { Pagination } from "./models";
 
 export interface TableProps {
@@ -16,12 +16,11 @@ interface TableSettings {
   dataSource: GridValidRowModel[];
   sortByDefault: string;
   columns: GridColDef[];
-  getDataSource: (pagination: Pagination, sort: GridSortModel) => GridValidRowModel[];
 }
 
 const pageSizeOptions = [10, 30, 50];
 
-export const useTable = ({ sortByDefault, dataSource, columns, getDataSource }: TableSettings) => {
+export const useTable = ({ sortByDefault, dataSource, columns }: TableSettings) => {
   const [pagination, setPagination] = useState<Pagination>({
     pageSize: pageSizeOptions[0],
     page: 0,
@@ -32,10 +31,6 @@ export const useTable = ({ sortByDefault, dataSource, columns, getDataSource }: 
       sort: "desc",
     }
   ]);
-
-  useEffect(() => {
-    getDataSource(pagination, sort);
-  }, [pagination, sort]);
 
   return {
     pageSizeOptions,

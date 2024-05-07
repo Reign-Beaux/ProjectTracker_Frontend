@@ -1,7 +1,8 @@
 import { Context, ReactNode, createContext, useContext, useState } from "react";
 import { UserFilter, userFilterEmpty } from "./components/users-filters/dtos/requests";
 import { UserTable } from "./components/users-filters/dtos/responses";
-// import { TableSettings } from "application/components/elements/table/table.handler";
+import { Pagination } from "application/components/elements/table/models";
+import { GridSortModel } from "@mui/x-data-grid";
 
 interface ProviderProps {
   children: ReactNode;
@@ -10,7 +11,8 @@ interface ProviderProps {
 export interface StateProps {
   usersTable: UserTable[];
   usersFilter: UserFilter;
-  // usersTableSettings: TableSettings;
+  pagination: Pagination;
+  sort: GridSortModel;
 }
 
 interface StateContext {
@@ -21,7 +23,8 @@ interface StateContext {
 const stateEmpty: StateProps = {
   usersTable: [],
   usersFilter: { ...userFilterEmpty },
-  // usersTableSettings: {} as TableSettings
+  pagination: {} as Pagination,
+  sort: [] as GridSortModel,
 };
 
 const stateContextEmpty: StateContext = {

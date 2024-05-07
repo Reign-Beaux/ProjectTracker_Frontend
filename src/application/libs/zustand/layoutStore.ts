@@ -1,4 +1,4 @@
-import { Feature } from "application/components/layouts/main-layout/components/aside/models";
+import { Feature } from "application/components/layouts/mainLayout/components/aside/models";
 import { create } from "zustand";
 
 interface LayoutProps {

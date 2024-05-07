@@ -1,16 +1,17 @@
 import { IconButton } from "@mui/material";
-import { GridColDef, GridRenderCellParams, GridSortModel } from "@mui/x-data-grid";
+import { GridColDef, GridRenderCellParams } from "@mui/x-data-grid";
 import { Icon, Tooltip, useTable } from "application/components/elements";
-import { Pagination } from "application/components/elements/table/models";
-import { useUsersContext } from "../../users.context";
+import { useEffect } from "react";
+import { StateProps, useUsersContext } from "../../users.context";
 
 export const useUsersTableHandler = () => {
   const {
+    state,
     state: { usersTable },
-    // setState,
+    setState,
   } = useUsersContext();
 
-  const getDataSource = (pagination: Pagination, sort: GridSortModel) => {
+  const getDataSource = () => {
     return [];
   };
 
@@ -92,8 +93,17 @@ export const useUsersTableHandler = () => {
     dataSource: usersTable,
     sortByDefault: "username",
     columns: columns,
-    getDataSource: getDataSource,
   });
+
+  useEffect(() => {
+    setState({ pagination: tableProps.pagination, sort: tableProps.sort } as StateProps);
+  }, []);
+
+  useEffect(() => {
+    if (tableProps.sort.length === 0) return;
+
+    getDataSource();
+  }, [tableProps.pagination, tableProps.sort]);
 
   return tableProps;
 };
