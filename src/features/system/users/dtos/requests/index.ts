@@ -1,1 +1,1 @@
-export * from './userGetByFilters.request';
+export * from './userGetByFiltersRequest';
