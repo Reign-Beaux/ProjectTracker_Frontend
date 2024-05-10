@@ -1,7 +1,7 @@
 import { Input } from "application/components/elements";
 import { FiltersContainer } from "application/components/shared";
 import "./styles.css";
-import { useUsersFiltersHandler } from "./usersFilters.handler";
+import { useUsersFiltersHandler } from "./usersFiltersHandler";
 
 export const UsersFilters = () => {
   const filtersForm = useUsersFiltersHandler();

@@ -1,1 +1,1 @@
-export * from './userTable.response';
+export * from './userTableResponse';
