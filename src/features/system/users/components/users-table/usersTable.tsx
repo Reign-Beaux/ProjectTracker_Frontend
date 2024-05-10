@@ -1,5 +1,5 @@
 import { Table } from "application/components/elements";
-import { useUsersTableHandler } from "./usersTable.handler";
+import { useUsersTableHandler } from "./usersTableHandler";
 
 export const UsersTable = () => {
   const tableProps = useUsersTableHandler();
