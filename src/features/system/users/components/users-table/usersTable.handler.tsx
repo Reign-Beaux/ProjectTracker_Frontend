@@ -2,17 +2,26 @@ import { IconButton } from "@mui/material";
 import { GridColDef, GridRenderCellParams } from "@mui/x-data-grid";
 import { Icon, Tooltip, useTable } from "application/components/elements";
 import { useEffect } from "react";
+import { UserGetByFiltersRequest } from "../../dtos/requests";
 import { StateProps, useUsersContext } from "../../users.context";
+import { useUsersService } from "../../users.service";
 
 export const useUsersTableHandler = () => {
   const {
-    state,
+    state: { usersFilter, pagination, sort },
     state: { usersTable },
     setState,
   } = useUsersContext();
+  const { getByFilters } = useUsersService();
 
-  const getDataSource = () => {
-    return [];
+  const getDataSource = async () => {
+    try {
+      const payload: UserGetByFiltersRequest = {
+        ...{ usersFilter, pagination, sort },
+      };
+      const response = await getByFilters(payload);
+      setState({ usersTable: response } as StateProps);
+    } catch (error: any) {}
   };
 
   const updateRecord = () => {
