@@ -1,1 +1,1 @@
-export * from './credentials.request';
+export * from './credentialsRequest';
