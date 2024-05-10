@@ -19,6 +19,7 @@ export const useUsersTableHandler = () => {
       const payload: UserGetByFiltersRequest = {
         ...{ usersFilter, pagination, sort },
       };
+      console.log(payload);
       const response = await getByFilters(payload);
       setState({ usersTable: response } as StateProps);
     } catch (error: any) {}

@@ -1,7 +1,8 @@
 import { styled } from "@mui/material";
-import { DataGrid } from "@mui/x-data-grid";
+import { DataGrid, GridSortModel } from "@mui/x-data-grid";
 import { NoRowsOverlay } from "./components";
-import { TableProps } from "./table.hook";
+import { TableProps } from "./tableHook";
+import { Pagination } from "./models";
 
 const TableStyledComponent = styled(DataGrid)`
   .MuiDataGrid-cell:focus-within {
@@ -20,8 +21,17 @@ export const Table = ({
   sort,
   setSort,
   dataSource,
-  columns
+  columns,
 }: TableProps) => {
+  const algo = (newPagination: Pagination) => {
+    // console.log(newPagination);
+    setPagination(newPagination);
+  };
+
+  const algo2 = (newSort: GridSortModel) => {
+    // console.log(newSort);
+    setSort(newSort);
+  };
 
   return (
     <TableStyledComponent
@@ -30,9 +40,9 @@ export const Table = ({
       columns={columns}
       pageSizeOptions={pageSizeOptions}
       paginationModel={pagination}
-      onPaginationModelChange={setPagination}    
-      sortModel={sort}  
-      onSortModelChange={setSort}
+      onPaginationModelChange={algo}
+      sortModel={sort}
+      onSortModelChange={algo2}
       disableRowSelectionOnClick
       autoHeight
       showColumnVerticalBorder
