@@ -4,7 +4,7 @@ import { Icon, Tooltip, useTable } from "application/components/elements";
 import { useEffect } from "react";
 import { UserGetByFiltersRequest } from "../../dtos/requests";
 import { StateProps, useUsersContext } from "../../users.context";
-import { useUsersService } from "../../users.service";
+import { useUsersService } from "../../usersService";
 
 export const useUsersTableHandler = () => {
   const {

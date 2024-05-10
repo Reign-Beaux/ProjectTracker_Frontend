@@ -1,6 +1,6 @@
 import { UserGetByFiltersRequest } from "../../dtos/requests";
 import { StateProps, useUsersContext } from "../../users.context";
-import { useUsersService } from "../../users.service";
+import { useUsersService } from "../../usersService";
 import { useFiltersForm } from "./hooks";
 
 export const useUsersFiltersHandler = () => {
