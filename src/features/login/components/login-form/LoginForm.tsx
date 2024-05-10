@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
 import { Button, Card, Input, InputPassword } from "application/components/elements";
-import { useLoginFormHandler } from "./loginForm.handler";
+import { useLoginFormHandler } from "./loginFormHandler";
 import "./styles.css";
 
 export const LoginForm = () => {
