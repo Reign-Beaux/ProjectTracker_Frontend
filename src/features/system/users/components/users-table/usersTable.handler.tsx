@@ -3,7 +3,7 @@ import { GridColDef, GridRenderCellParams } from "@mui/x-data-grid";
 import { Icon, Tooltip, useTable } from "application/components/elements";
 import { useEffect } from "react";
 import { UserGetByFiltersRequest } from "../../dtos/requests";
-import { StateProps, useUsersContext } from "../../users.context";
+import { StateProps, useUsersContext } from "../../usersContext";
 import { useUsersService } from "../../usersService";
 
 export const useUsersTableHandler = () => {

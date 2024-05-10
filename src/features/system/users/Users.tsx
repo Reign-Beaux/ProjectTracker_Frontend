@@ -1,6 +1,6 @@
 import { MainLayout } from "application/components/layouts";
 import { UsersFilters, UsersTable } from "./components";
-import { UsersProvider } from "./users.context";
+import { UsersProvider } from "./usersContext";
 
 export const Users = () => {
   return (

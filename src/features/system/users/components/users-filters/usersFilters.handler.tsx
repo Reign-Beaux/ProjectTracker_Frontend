@@ -1,5 +1,5 @@
 import { UserGetByFiltersRequest } from "../../dtos/requests";
-import { StateProps, useUsersContext } from "../../users.context";
+import { StateProps, useUsersContext } from "../../usersContext";
 import { useUsersService } from "../../usersService";
 import { useFiltersForm } from "./hooks";
 
