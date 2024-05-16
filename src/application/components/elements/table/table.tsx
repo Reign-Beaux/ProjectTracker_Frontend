@@ -1,8 +1,7 @@
 import { styled } from "@mui/material";
-import { DataGrid, GridSortModel } from "@mui/x-data-grid";
+import { DataGrid } from "@mui/x-data-grid";
 import { NoRowsOverlay } from "./components";
 import { TableProps } from "./tableHook";
-import { Pagination } from "./models";
 
 const TableStyledComponent = styled(DataGrid)`
   .MuiDataGrid-cell:focus-within {
