@@ -1,7 +1,38 @@
 import { styled } from "@mui/material";
-import { DataGrid } from "@mui/x-data-grid";
+import { DataGrid, GridColDef, GridSortModel, GridValidRowModel } from "@mui/x-data-grid";
 import { NoRowsOverlay } from "./components";
-import { TableProps } from "./tableHook";
+import { Pagination } from "./models";
+import { Dispatch, SetStateAction } from "react";
+
+export interface TableProps {
+  dataSource: GridValidRowModel[];
+  columns: GridColDef[];
+  pageSizeOptions: number[];
+  pagination: Pagination;
+  setPagination: Dispatch<SetStateAction<Pagination>>;
+  sort: GridSortModel;
+  setSort: Dispatch<SetStateAction<GridSortModel>>;
+}
+
+export interface TableSettings {
+  dataSource: GridValidRowModel[];
+  sortByDefault: string;
+  columns: GridColDef[];
+}
+
+const pageSizeOptions = [10, 30, 50];
+
+export const paginationDefault: Pagination = {
+  pageSize: pageSizeOptions[0],
+  page: 0,
+}
+
+export const sortDefault: GridSortModel = (sortByDefault: string) => ([
+  {
+    field: sortByDefault,
+    sort: "desc",
+  }
+]);
 
 const TableStyledComponent = styled(DataGrid)`
   .MuiDataGrid-cell:focus-within {
