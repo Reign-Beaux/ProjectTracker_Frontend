@@ -1,15 +1,21 @@
 import { styled } from "@mui/material";
-import { DataGrid, GridColDef, GridSortItem, GridSortModel, GridValidRowModel } from "@mui/x-data-grid";
+import {
+  DataGrid,
+  GridColDef,
+  GridSortItem,
+  GridSortModel,
+  GridValidRowModel,
+} from "@mui/x-data-grid";
 import { NoRowsOverlay } from "./components";
-import { Pagination } from "./models";
 import { Dispatch, SetStateAction } from "react";
+import { PaginationModel } from "./models";
 
 export interface TableProps {
   dataSource: GridValidRowModel[];
   columns: GridColDef[];
   pageSizeOptions: number[];
-  pagination: Pagination;
-  setPagination: Dispatch<SetStateAction<Pagination>>;
+  pagination: PaginationModel;
+  setPagination: Dispatch<SetStateAction<PaginationModel>>;
   sort: GridSortModel;
   setSort: Dispatch<SetStateAction<GridSortModel>>;
 }
@@ -22,17 +28,18 @@ export interface TableSettings {
 
 const pageSizeOptions = [10, 30, 50];
 
-export const paginationDefault: Pagination = {
+export const paginationDefault: PaginationModel = {
   pageSize: pageSizeOptions[0],
   page: 0,
-}
+};
 
-export const sortDefault: GridSortModel = (sortByDefault: string) => ([
-  {
-    field: sortByDefault,
-    sort: "desc",
-  } as GridSortItem
-]);
+export const sortDefault = (sortByDefault: string) =>
+  [
+    {
+      field: sortByDefault,
+      sort: "desc",
+    } as GridSortItem,
+  ] as GridSortModel;
 
 const TableStyledComponent = styled(DataGrid)`
   .MuiDataGrid-cell:focus-within {
@@ -44,11 +51,7 @@ const TableStyledComponent = styled(DataGrid)`
   --DataGrid-overlayHeight: 60vh;
 `;
 
-export const Table = ({
-  pageSizeOptions,
-  dataSource,
-  columns,
-}: TableProps) => {
+export const Table = ({ pageSizeOptions, dataSource, columns }: TableProps) => {
   return (
     <TableStyledComponent
       rows={dataSource}
