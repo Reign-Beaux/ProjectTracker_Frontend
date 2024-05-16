@@ -31,7 +31,7 @@ export const sortDefault: GridSortModel = (sortByDefault: string) => ([
   {
     field: sortByDefault,
     sort: "desc",
-  } as GridSortItem 
+  } as GridSortItem
 ]);
 
 const TableStyledComponent = styled(DataGrid)`
