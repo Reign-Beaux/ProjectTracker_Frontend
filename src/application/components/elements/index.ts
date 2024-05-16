@@ -6,6 +6,6 @@ export * from './icon/icon';
 export * from './input-password/inputPassword';
 export * from './input/input';
 export * from './link/Link';
+export * from './table/models';
 export * from './table/table';
-export * from './table/tableHook';
 export * from './tootip/tooltip';

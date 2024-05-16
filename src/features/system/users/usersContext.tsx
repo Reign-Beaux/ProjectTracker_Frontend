@@ -1,8 +1,8 @@
+import { paginationDefault, sortDefault } from "application/components/elements";
 import { Context, ReactNode, createContext, useContext, useState } from "react";
-import { UserFilter, userFilterEmpty } from "./components/users-filters/dtos/requests";
+import { userFilterEmpty } from "./components/users-filters/dtos/requests";
 import { UserTable } from "./components/users-filters/dtos/responses";
-import { Pagination } from "application/components/elements/table/models";
-import { GridSortModel } from "@mui/x-data-grid";
+import { UserGetByFiltersRequest } from "./dtos/requests";
 
 interface ProviderProps {
   children: ReactNode;
@@ -10,9 +10,7 @@ interface ProviderProps {
 
 export interface StateProps {
   usersTable: UserTable[];
-  usersFilter: UserFilter;
-  pagination: Pagination;
-  sort: GridSortModel;
+  settingsTable: UserGetByFiltersRequest;
 }
 
 interface StateContext {
@@ -22,9 +20,11 @@ interface StateContext {
 
 const stateEmpty: StateProps = {
   usersTable: [],
-  usersFilter: { ...userFilterEmpty },
-  pagination: {} as Pagination,
-  sort: [] as GridSortModel,
+  settingsTable: {
+    usersFilter: { ...userFilterEmpty },
+    pagination: paginationDefault,
+    sort: sortDefault("username"),
+  }
 };
 
 const stateContextEmpty: StateContext = {

@@ -1,25 +1,20 @@
 import { IconButton } from "@mui/material";
 import { GridColDef, GridRenderCellParams } from "@mui/x-data-grid";
-import { Icon, Tooltip, useTable } from "application/components/elements";
-import { useEffect } from "react";
-import { UserGetByFiltersRequest } from "../../dtos/requests";
+import { Icon, Tooltip } from "application/components/elements";
 import { StateProps, useUsersContext } from "../../usersContext";
 import { useUsersService } from "../../usersService";
+import { useEffect } from "react";
 
 export const useUsersTableHandler = () => {
   const {
-    state: { usersFilter, pagination, sort, usersTable },
+    state: { settingsTable, usersTable },
     setState,
   } = useUsersContext();
   const { getByFilters } = useUsersService();
 
   const getDataSource = async () => {
     try {
-      const payload: UserGetByFiltersRequest = {
-        ...{ usersFilter, pagination, sort },
-      };
-      console.log(payload);
-      const response = await getByFilters(payload);
+      const response = await getByFilters(settingsTable);
       setState({ usersTable: response } as StateProps);
     } catch (error: any) {}
   };
@@ -98,21 +93,9 @@ export const useUsersTableHandler = () => {
 
   const columns = columnsSettings(updateRecord, deleteRecord);
 
-  const tableProps = useTable({
-    dataSource: usersTable,
-    sortByDefault: "username",
-    columns: columns,
-  });
-
   useEffect(() => {
-    setState({ pagination: tableProps.pagination, sort: tableProps.sort } as StateProps);
+    getDataSource();
   }, []);
 
-  useEffect(() => {
-    if (tableProps.sort.length === 0) return;
-
-    getDataSource();
-  }, [pagination, sort]);
-
-  return tableProps;
+  return { dataSource: usersTable, columns };
 };

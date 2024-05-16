@@ -7,17 +7,11 @@ import {
   GridValidRowModel,
 } from "@mui/x-data-grid";
 import { NoRowsOverlay } from "./components";
-import { Dispatch, SetStateAction } from "react";
 import { PaginationModel } from "./models";
 
 export interface TableProps {
   dataSource: GridValidRowModel[];
   columns: GridColDef[];
-  pageSizeOptions: number[];
-  pagination: PaginationModel;
-  setPagination: Dispatch<SetStateAction<PaginationModel>>;
-  sort: GridSortModel;
-  setSort: Dispatch<SetStateAction<GridSortModel>>;
 }
 
 export interface TableSettings {
@@ -51,7 +45,7 @@ const TableStyledComponent = styled(DataGrid)`
   --DataGrid-overlayHeight: 60vh;
 `;
 
-export const Table = ({ pageSizeOptions, dataSource, columns }: TableProps) => {
+export const Table = ({ dataSource, columns }: TableProps) => {
   return (
     <TableStyledComponent
       rows={dataSource}
