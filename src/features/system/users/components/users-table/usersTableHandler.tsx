@@ -1,9 +1,10 @@
-import { IconButton } from "@mui/material";
-import { GridColDef, GridRenderCellParams } from "@mui/x-data-grid";
-import { Icon, Tooltip } from "application/components/elements";
+import { IconButton, Typography } from "@mui/material";
+import { GridColDef, GridColumnHeaderParams, GridRenderCellParams } from "@mui/x-data-grid";
+import { Icon, PaginationModel, Tooltip } from "application/components/elements";
 import { StateProps, useUsersContext } from "../../usersContext";
 import { useUsersService } from "../../usersService";
 import { useEffect } from "react";
+import { TableHeader } from "application/components/elements/table/components";
 
 export const useUsersTableHandler = () => {
   const {
@@ -19,6 +20,10 @@ export const useUsersTableHandler = () => {
     } catch (error: any) {}
   };
 
+  const paginationModelChange = (newPagination: PaginationModel) => {
+    setState({ settingsTable: { ...settingsTable, pagination: newPagination } } as StateProps);
+  };
+
   const updateRecord = () => {
     console.log("updateRecord");
   };
@@ -31,10 +36,10 @@ export const useUsersTableHandler = () => {
     return [
       {
         field: "username",
-        headerName: "Usuario",
         flex: 1,
         minWidth: 150,
         editable: false,
+        renderHeader: () => <TableHeader text="Usuario" />,
       },
       {
         field: "name",
@@ -71,8 +76,6 @@ export const useUsersTableHandler = () => {
         minWidth: 150,
         editable: false,
         align: "center",
-        disableColumnMenu: true,
-        sortable: false,
         renderCell: (params: GridRenderCellParams) => (
           <>
             <Tooltip title="Actualizar usuario">
@@ -93,9 +96,16 @@ export const useUsersTableHandler = () => {
 
   const columns = columnsSettings(updateRecord, deleteRecord);
 
+  useEffect(() => {}, []);
+
   useEffect(() => {
     getDataSource();
-  }, []);
+  }, [settingsTable.pagination, settingsTable.sort]);
 
-  return { dataSource: usersTable, columns };
+  return {
+    dataSource: usersTable,
+    columns,
+    pagination: settingsTable.pagination,
+    paginationModelChange,
+  };
 };

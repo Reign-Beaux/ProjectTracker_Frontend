@@ -12,6 +12,8 @@ import { PaginationModel } from "./models";
 export interface TableProps {
   dataSource: GridValidRowModel[];
   columns: GridColDef[];
+  pagination: PaginationModel;
+  paginationModelChange: (newPagination: PaginationModel) => void;
 }
 
 export interface TableSettings {
@@ -45,13 +47,15 @@ const TableStyledComponent = styled(DataGrid)`
   --DataGrid-overlayHeight: 60vh;
 `;
 
-export const Table = ({ dataSource, columns }: TableProps) => {
+export const Table = ({ dataSource, columns, pagination, paginationModelChange }: TableProps) => {
   return (
     <TableStyledComponent
       rows={dataSource}
       slots={{ noRowsOverlay: NoRowsOverlay }}
       columns={columns}
       pageSizeOptions={pageSizeOptions}
+      paginationModel={pagination}
+      onPaginationModelChange={paginationModelChange}
       disableColumnSorting
       disableColumnMenu
       disableRowSelectionOnClick
