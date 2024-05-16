@@ -1,5 +1,5 @@
 import { styled } from "@mui/material";
-import { DataGrid, GridColDef, GridSortModel, GridValidRowModel } from "@mui/x-data-grid";
+import { DataGrid, GridColDef, GridSortItem, GridSortModel, GridValidRowModel } from "@mui/x-data-grid";
 import { NoRowsOverlay } from "./components";
 import { Pagination } from "./models";
 import { Dispatch, SetStateAction } from "react";
@@ -31,7 +31,7 @@ export const sortDefault: GridSortModel = (sortByDefault: string) => ([
   {
     field: sortByDefault,
     sort: "desc",
-  }
+  } as GridSortItem 
 ]);
 
 const TableStyledComponent = styled(DataGrid)`
