@@ -16,33 +16,17 @@ const TableStyledComponent = styled(DataGrid)`
 
 export const Table = ({
   pageSizeOptions,
-  pagination,
-  setPagination,
-  sort,
-  setSort,
   dataSource,
   columns,
 }: TableProps) => {
-  const algo = (newPagination: Pagination) => {
-    // console.log(newPagination);
-    setPagination(newPagination);
-  };
-
-  const algo2 = (newSort: GridSortModel) => {
-    // console.log(newSort);
-    setSort(newSort);
-  };
-
   return (
     <TableStyledComponent
       rows={dataSource}
       slots={{ noRowsOverlay: NoRowsOverlay }}
       columns={columns}
       pageSizeOptions={pageSizeOptions}
-      paginationModel={pagination}
-      onPaginationModelChange={algo}
-      sortModel={sort}
-      onSortModelChange={algo2}
+      disableColumnSorting
+      disableColumnMenu
       disableRowSelectionOnClick
       autoHeight
       showColumnVerticalBorder

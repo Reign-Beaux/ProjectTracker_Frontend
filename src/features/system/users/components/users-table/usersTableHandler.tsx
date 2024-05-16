@@ -8,8 +8,7 @@ import { useUsersService } from "../../usersService";
 
 export const useUsersTableHandler = () => {
   const {
-    state: { usersFilter, pagination, sort },
-    state: { usersTable },
+    state: { usersFilter, pagination, sort, usersTable },
     setState,
   } = useUsersContext();
   const { getByFilters } = useUsersService();
@@ -113,7 +112,7 @@ export const useUsersTableHandler = () => {
     if (tableProps.sort.length === 0) return;
 
     getDataSource();
-  }, [tableProps.pagination, tableProps.sort]);
+  }, [pagination, sort]);
 
   return tableProps;
 };
