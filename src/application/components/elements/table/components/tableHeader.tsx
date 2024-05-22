@@ -1,21 +1,40 @@
-import { Typography } from "@mui/material";
+import { Typography, styled } from "@mui/material";
+import { useState } from "react";
+import { Icon } from "../../icon/icon";
 
 interface TableHeaderProps {
   text: string;
 }
 
+const HeaderStyle = styled("div")`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const TextContainer = styled("div")`
+  flex-grow: 1;
+  flex-shrink: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+`;
+
 export const TableHeader = ({ text }: TableHeaderProps) => {
+  const [sort, setSort] = useState<"asc" | "desc">("desc");
+
+  const toggleSort = () => {
+    setSort((prevSort) => (prevSort === "desc" ? "asc" : "desc"));
+  };
+
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "flex-start",
-        alignItems: "center",
-        height: "100%",
-        width: "100%",
-        backgroundColor: "red"
-      }}>
-      <Typography>{text}</Typography>
-    </div>
+    <HeaderStyle onClick={toggleSort}>
+      <TextContainer>
+        <Typography style={{ userSelect: "none" }}>{text}</Typography>
+      </TextContainer>
+      <Icon type={sort === "desc" ? "arrowDown" : "arrowUp"} />
+    </HeaderStyle>
   );
 };

@@ -1,10 +1,10 @@
-import { IconButton, Typography } from "@mui/material";
-import { GridColDef, GridColumnHeaderParams, GridRenderCellParams } from "@mui/x-data-grid";
+import { IconButton } from "@mui/material";
+import { GridColDef, GridRenderCellParams } from "@mui/x-data-grid";
 import { Icon, PaginationModel, Tooltip } from "application/components/elements";
+import { TableHeader } from "application/components/elements/table/components";
+import { useEffect } from "react";
 import { StateProps, useUsersContext } from "../../usersContext";
 import { useUsersService } from "../../usersService";
-import { useEffect } from "react";
-import { TableHeader } from "application/components/elements/table/components";
 
 export const useUsersTableHandler = () => {
   const {
