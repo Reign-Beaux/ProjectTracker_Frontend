@@ -4,6 +4,7 @@ import { Icon } from "../../icon/icon";
 
 interface TableHeaderProps {
   text: string;
+  selectedToSort: boolean;
 }
 
 const HeaderStyle = styled("div")`
@@ -22,7 +23,7 @@ const TextContainer = styled("div")`
   white-space: nowrap;
 `;
 
-export const TableHeader = ({ text }: TableHeaderProps) => {
+export const TableHeader = ({ text, selectedToSort }: TableHeaderProps) => {
   const [sort, setSort] = useState<"asc" | "desc">("desc");
 
   const toggleSort = () => {
@@ -34,7 +35,7 @@ export const TableHeader = ({ text }: TableHeaderProps) => {
       <TextContainer>
         <Typography style={{ userSelect: "none" }}>{text}</Typography>
       </TextContainer>
-      <Icon type={sort === "desc" ? "arrowDown" : "arrowUp"} />
+      {selectedToSort && <Icon type={sort === "desc" ? "arrowDown" : "arrowUp"} />}
     </HeaderStyle>
   );
 };

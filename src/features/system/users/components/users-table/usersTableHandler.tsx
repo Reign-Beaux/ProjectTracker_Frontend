@@ -39,7 +39,7 @@ export const useUsersTableHandler = () => {
         flex: 1,
         minWidth: 150,
         editable: false,
-        renderHeader: () => <TableHeader text="Usuario" />,
+        renderHeader: () => <TableHeader text="Usuario" selectedToSort />,
       },
       {
         field: "name",
