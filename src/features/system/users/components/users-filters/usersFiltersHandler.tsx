@@ -8,6 +8,7 @@ export const useUsersFiltersHandler = () => {
   const {
     state: {
       settingsTable: { usersFilter, pagination, sort },
+      settingsTable
     },
     setState,
   } = useUsersContext();
@@ -15,12 +16,14 @@ export const useUsersFiltersHandler = () => {
 
   const submitForm = async (values: UserFilter) => {
     try {
-      setState({ settingsTable: { usersFilter: values, pagination, sort } } as StateProps);
       const payload: UserGetByFiltersRequest = {
         ...{ usersFilter: values, pagination, sort },
       };
       const response = await getByFilters(payload);
-      setState({ usersTable: response } as StateProps);
+      setState({
+        usersTable: response,
+        settingsTable: { ...settingsTable, usersFilter: values },
+      } as StateProps);
     } catch (error: any) {}
   };
 
