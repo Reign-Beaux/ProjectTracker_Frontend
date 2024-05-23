@@ -23,8 +23,8 @@ const stateEmpty: StateProps = {
   settingsTable: {
     usersFilter: { ...userFilterEmpty },
     pagination: paginationDefault,
-    sort: sortDefault("username"),
-  }
+    sort: sortDefault("name"),
+  },
 };
 
 const stateContextEmpty: StateContext = {

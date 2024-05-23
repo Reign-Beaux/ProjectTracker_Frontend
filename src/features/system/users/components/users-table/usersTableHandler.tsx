@@ -1,8 +1,8 @@
 import { IconButton } from "@mui/material";
-import { GridColDef, GridRenderCellParams } from "@mui/x-data-grid";
+import { GridColDef, GridRenderCellParams, GridSortItem } from "@mui/x-data-grid";
 import { Icon, PaginationModel, Tooltip } from "application/components/elements";
 import { TableHeader } from "application/components/elements/table/components";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { StateProps, useUsersContext } from "../../usersContext";
 import { useUsersService } from "../../usersService";
 
@@ -12,6 +12,7 @@ export const useUsersTableHandler = () => {
     setState,
   } = useUsersContext();
   const { getByFilters } = useUsersService();
+  const [currentColmunSort, setCurrentColmunSort] = useState("name");
 
   const getDataSource = async () => {
     try {
@@ -22,6 +23,10 @@ export const useUsersTableHandler = () => {
 
   const paginationModelChange = (newPagination: PaginationModel) => {
     setState({ settingsTable: { ...settingsTable, pagination: newPagination } } as StateProps);
+  };
+
+  const changeSort = (newSort: GridSortItem) => {
+    setState({ settingsTable: { ...settingsTable, sort: newSort } } as StateProps);
   };
 
   const updateRecord = () => {
@@ -35,39 +40,79 @@ export const useUsersTableHandler = () => {
   const columnsSettings = (update: Function, remove: Function): GridColDef[] => {
     return [
       {
+        field: "name",
+        flex: 1,
+        minWidth: 150,
+        editable: false,
+        renderHeader: () => (
+          <TableHeader
+            field="name"
+            text="Nombre(s)"
+            currentColmunSort={currentColmunSort}
+            setCurrentColmunSort={setCurrentColmunSort}
+            changeSort={changeSort}
+          />
+        ),
+      },
+      {
+        field: "paternalLastname",
+        flex: 1,
+        minWidth: 150,
+        editable: false,
+        renderHeader: () => (
+          <TableHeader
+            field="paternalLastname"
+            text="Apellido Paterno"
+            currentColmunSort={currentColmunSort}
+            setCurrentColmunSort={setCurrentColmunSort}
+            changeSort={changeSort}
+          />
+        ),
+      },
+      {
+        field: "maternalLastname",
+        flex: 1,
+        minWidth: 150,
+        editable: false,
+        renderHeader: () => (
+          <TableHeader
+            field="maternalLastname"
+            text="Apellido Materno"
+            currentColmunSort={currentColmunSort}
+            setCurrentColmunSort={setCurrentColmunSort}
+            changeSort={changeSort}
+          />
+        ),
+      },
+      {
         field: "username",
         flex: 1,
         minWidth: 150,
         editable: false,
-        renderHeader: () => <TableHeader text="Usuario" selectedToSort />,
-      },
-      {
-        field: "name",
-        headerName: "Nombre",
-        flex: 1,
-        minWidth: 150,
-        editable: false,
-      },
-      {
-        field: "paternalLastname",
-        headerName: "Apellido Paterno",
-        flex: 1,
-        minWidth: 150,
-        editable: false,
-      },
-      {
-        field: "maternalLastname",
-        headerName: "Apellido Materno",
-        flex: 1,
-        minWidth: 150,
-        editable: false,
+        renderHeader: () => (
+          <TableHeader
+            field="username"
+            text="Usuario"
+            currentColmunSort={currentColmunSort}
+            setCurrentColmunSort={setCurrentColmunSort}
+            changeSort={changeSort}
+          />
+        ),
       },
       {
         field: "email",
-        headerName: "Email",
         flex: 1,
         minWidth: 150,
         editable: false,
+        renderHeader: () => (
+          <TableHeader
+            field="email"
+            text="Email"
+            currentColmunSort={currentColmunSort}
+            setCurrentColmunSort={setCurrentColmunSort}
+            changeSort={changeSort}
+          />
+        ),
       },
       {
         field: "actions",

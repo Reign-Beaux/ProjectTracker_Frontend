@@ -1,10 +1,14 @@
 import { Typography, styled } from "@mui/material";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { Icon } from "../../icon/icon";
+import { GridSortItem } from "@mui/x-data-grid";
 
 interface TableHeaderProps {
+  field: string;
   text: string;
-  selectedToSort: boolean;
+  currentColmunSort: string;
+  setCurrentColmunSort: Dispatch<SetStateAction<string>>;
+  changeSort: (newSort: GridSortItem) => void;
 }
 
 const HeaderStyle = styled("div")`
@@ -23,19 +27,32 @@ const TextContainer = styled("div")`
   white-space: nowrap;
 `;
 
-export const TableHeader = ({ text, selectedToSort }: TableHeaderProps) => {
-  const [sort, setSort] = useState<"asc" | "desc">("desc");
+export const TableHeader = ({
+  field,
+  text,
+  currentColmunSort,
+  setCurrentColmunSort,
+  changeSort,
+}: TableHeaderProps) => {
+  const [sort, setSort] = useState<"desc" | "asc">("desc");
 
-  const toggleSort = () => {
-    setSort((prevSort) => (prevSort === "desc" ? "asc" : "desc"));
+  const handleClickHeader = () => {
+    if (currentColmunSort === field) {
+      setSort((prev) => (prev === "desc" ? "asc" : "desc"));
+      changeSort({ ...({ field, sort: sort === "desc" ? "asc" : "desc" } as GridSortItem) });
+    } else {
+      setCurrentColmunSort(field);
+      setSort("desc");
+      changeSort({ ...({ field, sort: "desc" } as GridSortItem) });
+    }
   };
 
   return (
-    <HeaderStyle onClick={toggleSort}>
+    <HeaderStyle onClick={handleClickHeader}>
       <TextContainer>
         <Typography style={{ userSelect: "none" }}>{text}</Typography>
       </TextContainer>
-      {selectedToSort && <Icon type={sort === "desc" ? "arrowDown" : "arrowUp"} />}
+      {currentColmunSort === field && <Icon type={sort === "desc" ? "arrowDown" : "arrowUp"} />}
     </HeaderStyle>
   );
 };

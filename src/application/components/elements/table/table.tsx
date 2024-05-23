@@ -1,11 +1,5 @@
 import { styled } from "@mui/material";
-import {
-  DataGrid,
-  GridColDef,
-  GridSortItem,
-  GridSortModel,
-  GridValidRowModel,
-} from "@mui/x-data-grid";
+import { DataGrid, GridColDef, GridSortItem, GridValidRowModel } from "@mui/x-data-grid";
 import { NoRowsOverlay } from "./components";
 import { PaginationModel } from "./models";
 
@@ -30,12 +24,18 @@ export const paginationDefault: PaginationModel = {
 };
 
 export const sortDefault = (sortByDefault: string) =>
-  [
-    {
-      field: sortByDefault,
-      sort: "desc",
-    } as GridSortItem,
-  ] as GridSortModel;
+  ({
+    field: sortByDefault,
+    sort: "desc",
+  } as GridSortItem);
+
+// export const sortDefault = (sortByDefault: string) =>
+//   [
+//     {
+//       field: sortByDefault,
+//       sort: "desc",
+//     } as GridSortItem,
+//   ] as GridSortModel;
 
 const TableStyledComponent = styled(DataGrid)`
   .MuiDataGrid-cell:focus-within {
