@@ -10,7 +10,6 @@ export const UsersFilters = () => {
     <form className="user-filters-form" onSubmit={filtersForm.handleSubmit}>
       <FiltersContainer
         inputs={[
-          <Input inputKey="userName" inputText="Usuario" formSettings={filtersForm} />,
           <Input inputKey="name" inputText="Nombre" formSettings={filtersForm} />,
           <Input
             inputKey="paternalLastname"
@@ -22,6 +21,7 @@ export const UsersFilters = () => {
             inputText="Apellido Materno"
             formSettings={filtersForm}
           />,
+          <Input inputKey="userName" inputText="Usuario" formSettings={filtersForm} />,
           <Input inputKey="email" inputText="Correo electrónico" formSettings={filtersForm} />,
         ]}
       />

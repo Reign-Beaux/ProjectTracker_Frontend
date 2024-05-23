@@ -38,9 +38,7 @@ export const UsersProvider = ({ children }: ProviderProps) => {
   const [state, setState] = useState({ ...stateEmpty });
 
   const handleSetState = (newState: StateProps) => {
-    setState((prev) => {
-      return { ...prev, ...newState };
-    });
+    setState((prev) => ({ ...prev, ...newState }));
   };
 
   return (
