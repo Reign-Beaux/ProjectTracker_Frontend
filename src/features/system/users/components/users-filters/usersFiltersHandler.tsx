@@ -7,7 +7,7 @@ import { useFiltersForm } from "./hooks";
 export const useUsersFiltersHandler = () => {
   const {
     state: {
-      settingsTable: { usersFilter, pagination, sort },
+      settingsTable: { pagination, sort },
       settingsTable
     },
     setState,
@@ -27,7 +27,7 @@ export const useUsersFiltersHandler = () => {
     } catch (error: any) {}
   };
 
-  const filtersForm = useFiltersForm({ submitForm, usersFilter });
+  const filtersForm = useFiltersForm({ submitForm });
 
   return { ...filtersForm };
 };

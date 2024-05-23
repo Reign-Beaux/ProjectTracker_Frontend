@@ -1,16 +1,15 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { UserFilter } from "../dtos/requests";
+import { UserFilter, userFilterEmpty } from "../dtos/requests";
 
 interface FiltersFormProps {
   submitForm: (values: UserFilter) => Promise<void>;
-  usersFilter: UserFilter;
 }
 
 interface FormValues extends UserFilter {}
 
-export const useFiltersForm = ({ submitForm, usersFilter }: FiltersFormProps) => {
-  const initialValues: FormValues = { ...usersFilter };
+export const useFiltersForm = ({ submitForm }: FiltersFormProps) => {
+  const initialValues: FormValues = { ...userFilterEmpty };
 
   const validationSchema = Yup.object({});
 
