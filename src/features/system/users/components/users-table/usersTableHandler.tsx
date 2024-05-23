@@ -141,8 +141,6 @@ export const useUsersTableHandler = () => {
 
   const columns = columnsSettings(updateRecord, deleteRecord);
 
-  useEffect(() => {}, []);
-
   useEffect(() => {
     getDataSource();
   }, [settingsTable.pagination, settingsTable.sort]);
