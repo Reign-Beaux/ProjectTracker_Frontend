@@ -26,7 +26,7 @@ export const paginationDefault: PaginationModel = {
 export const sortDefault = (sortByDefault: string) =>
   ({
     field: sortByDefault,
-    sort: "desc",
+    sort: "asc",
   } as GridSortItem);
 
 // export const sortDefault = (sortByDefault: string) =>

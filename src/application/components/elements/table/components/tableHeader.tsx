@@ -34,7 +34,7 @@ export const TableHeader = ({
   setCurrentColmunSort,
   changeSort,
 }: TableHeaderProps) => {
-  const [sort, setSort] = useState<"desc" | "asc">("desc");
+  const [sort, setSort] = useState<"desc" | "asc">("asc");
 
   const handleClickHeader = () => {
     if (currentColmunSort === field) {
@@ -42,8 +42,8 @@ export const TableHeader = ({
       changeSort({ ...({ field, sort: sort === "desc" ? "asc" : "desc" } as GridSortItem) });
     } else {
       setCurrentColmunSort(field);
-      setSort("desc");
-      changeSort({ ...({ field, sort: "desc" } as GridSortItem) });
+      setSort("asc");
+      changeSort({ ...({ field, sort: "asc" } as GridSortItem) });
     }
   };
 
@@ -52,7 +52,7 @@ export const TableHeader = ({
       <TextContainer>
         <Typography style={{ userSelect: "none" }}>{text}</Typography>
       </TextContainer>
-      {currentColmunSort === field && <Icon type={sort === "desc" ? "arrowDown" : "arrowUp"} />}
+      {currentColmunSort === field && <Icon type={sort === "asc" ? "arrowDown" : "arrowUp"} />}
     </HeaderStyle>
   );
 };
