@@ -2,11 +2,14 @@ import { IconButton } from "@mui/material";
 import { GridColDef, GridRenderCellParams, GridSortItem } from "@mui/x-data-grid";
 import { Icon, PaginationModel, Tooltip } from "application/components/elements";
 import { TableHeader } from "application/components/elements/table/components";
+import { ConfirmationProps, useConfirmationStore } from "application/libs/zustand";
 import { useEffect, useState } from "react";
 import { StateProps, useUsersContext } from "../../usersContext";
 import { useUsersService } from "../../usersService";
+import { UserTable } from "../users-filters/dtos/responses";
 
 export const useUsersTableHandler = () => {
+  const { initConfirmation } = useConfirmationStore();
   const {
     state: { settingsTable, usersTable },
     setState,
@@ -33,8 +36,25 @@ export const useUsersTableHandler = () => {
     console.log("updateRecord: " + id);
   };
 
-  const deleteRecord = (id: number) => {
-    console.log("deleteRecord: " + id);
+  const deleteRecord = () => {
+    console.log("lo borré");
+  };
+
+  const confirmationDeleteRecord = (row: UserTable) => {
+    console.log("deleteRecord: " + row.id);
+    initConfirmation({
+      title: "Eliminar usuario",
+      message: `¿Desea eliminar el usuario ${row.name} ${row.paternalLastname} ${row.maternalLastname}?`,
+      withDefaultButton: true,
+      type: "error",
+      actions: [
+        {
+          label: "Eliminar",
+          type: "error",
+          callback: () => deleteRecord(),
+        },
+      ],
+    } as ConfirmationProps);
   };
 
   const columns: GridColDef[] = [
@@ -128,7 +148,9 @@ export const useUsersTableHandler = () => {
             </IconButton>
           </Tooltip>
           <Tooltip title="Eliminar usuario">
-            <IconButton aria-label="delete-subject" onClick={() => deleteRecord(params.row.id)}>
+            <IconButton
+              aria-label="delete-subject"
+              onClick={() => confirmationDeleteRecord(params.row)}>
               <Icon type="delete" />
             </IconButton>
           </Tooltip>

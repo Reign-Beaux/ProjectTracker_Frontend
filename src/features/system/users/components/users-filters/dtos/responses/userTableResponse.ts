@@ -4,5 +4,5 @@ export interface UserTable {
   email: string;
   name: string;
   paternalLastname: string;
-  maternalLastnam: string;
+  maternalLastname: string;
 }

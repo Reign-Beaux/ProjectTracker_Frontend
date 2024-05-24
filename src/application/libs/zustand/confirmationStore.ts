@@ -1,8 +1,10 @@
 import { create } from "zustand";
 
+type TypeInformation = "success" | "error" | "info" | "warning";
+
 interface ConfirmationAction {
   label: string;
-  type: "success" | "error" | "info" | "warning";
+  type: TypeInformation;
   callback: () => void;
 }
 
@@ -10,6 +12,7 @@ export interface ConfirmationProps {
   title: string;
   message: string;
   withDefaultButton: boolean;
+  type: TypeInformation;
   actions: ConfirmationAction[];
 }
 
@@ -24,6 +27,7 @@ const confirmationPropsEmpty: ConfirmationProps = {
   title: "",
   message: "",
   withDefaultButton: true,
+  type: "success",
   actions: [],
 };
 
