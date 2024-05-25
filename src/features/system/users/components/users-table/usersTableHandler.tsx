@@ -1,6 +1,6 @@
 import { IconButton } from "@mui/material";
 import { GridColDef, GridRenderCellParams, GridSortItem } from "@mui/x-data-grid";
-import { Icon, PaginationModel, Tooltip } from "application/components/elements";
+import { Button, Icon, PaginationModel, Tooltip } from "application/components/elements";
 import { TableHeader } from "application/components/elements/table/components";
 import { ConfirmationProps, useConfirmationStore } from "application/libs/zustand";
 import { useEffect, useState } from "react";
@@ -37,9 +37,9 @@ export const useUsersTableHandler = () => {
   };
 
   const deleteUser = async (id: number) => {
-    await deleteRecord(id)
+    await deleteRecord(id);
     getDataSource();
-  }
+  };
 
   const confirmationDeleteRecord = (row: UserTable) => {
     initConfirmation({
@@ -140,6 +140,17 @@ export const useUsersTableHandler = () => {
       minWidth: 150,
       editable: false,
       align: "center",
+      renderHeader: () => (
+        <div style={{ width: "100%", textAlign: "center" }}>
+          <Tooltip title="Insertar usuario">
+            <IconButton
+              aria-label="update-student"
+              onClick={() => console.log("Hello World!")}>
+              <Icon type="addFolder" />
+            </IconButton>
+          </Tooltip>
+        </div>
+      ),
       renderCell: (params: GridRenderCellParams) => (
         <>
           <Tooltip title="Actualizar usuario">
