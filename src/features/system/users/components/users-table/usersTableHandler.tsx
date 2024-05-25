@@ -14,7 +14,7 @@ export const useUsersTableHandler = () => {
     state: { settingsTable, usersTable },
     setState,
   } = useUsersContext();
-  const { getByFilters } = useUsersService();
+  const { getByFilters, deleteRecord } = useUsersService();
   const [currentColmunSort, setCurrentColmunSort] = useState("name");
 
   const getDataSource = async () => {
@@ -33,12 +33,13 @@ export const useUsersTableHandler = () => {
   };
 
   const updateRecord = (id: number) => {
-    console.log("updateRecord: " + id);
+    console.log("lo borré: ", id);
   };
 
-  const deleteRecord = () => {
-    console.log("lo borré");
-  };
+  const deleteUser = async (id: number) => {
+    await deleteRecord(id)
+    getDataSource();
+  }
 
   const confirmationDeleteRecord = (row: UserTable) => {
     initConfirmation({
@@ -50,7 +51,7 @@ export const useUsersTableHandler = () => {
         {
           label: "Eliminar",
           type: "error",
-          callback: () => deleteRecord(),
+          callback: () => deleteUser(row.id),
         },
       ],
     } as ConfirmationProps);

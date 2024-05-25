@@ -26,11 +26,9 @@ export const useAxios = () => {
   };
 
   const post = async <T, R>(endpoint: string, payload: R) => {
-    const response: AxiosResponse<T> = await axios.post(
-      `${apiUrl}/${endpoint}`,
-      payload,
-      { signal }
-    );
+    const response: AxiosResponse<T> = await axios.post(`${apiUrl}/${endpoint}`, payload, {
+      signal,
+    });
     return response.data;
   };
 
@@ -42,7 +40,8 @@ export const useAxios = () => {
   };
 
   const remove = async <T>(endpoint: string) => {
-    const response: AxiosResponse<T> = await axios.delete(`${apiUrl}/${endpoint}`, {
+    const urlComplete = `${apiUrl}/${endpoint}`;
+    const response: AxiosResponse<T> = await axios.delete(urlComplete, {
       signal,
     });
     return response.data;

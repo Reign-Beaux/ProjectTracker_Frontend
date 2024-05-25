@@ -4,10 +4,11 @@ import { UserGetByFiltersRequest } from "./dtos/requests";
 
 enum UserEndpoint {
   GET_BY_FILTERS = "Users/GetByFilters",
+  DELETE = "Users",
 }
 
 export const useUsersService = () => {
-  const { post } = useAxios();
+  const { post, remove } = useAxios();
 
   const getByFilters = async (payload: UserGetByFiltersRequest) => {
     const response = await post<ResponseData<UserTable[]>, UserGetByFiltersRequest>(
@@ -17,7 +18,14 @@ export const useUsersService = () => {
     return response.data;
   };
 
+  const deleteRecord = async (id: number) => {
+    const url = `${UserEndpoint.DELETE}/${id}`;
+    const response = await remove<Response>(url);
+    return response;
+  };
+
   return {
     getByFilters,
+    deleteRecord,
   };
 };
