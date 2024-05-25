@@ -41,7 +41,6 @@ export const useUsersTableHandler = () => {
   };
 
   const confirmationDeleteRecord = (row: UserTable) => {
-    console.log("deleteRecord: " + row.id);
     initConfirmation({
       title: "Eliminar usuario",
       message: `¿Desea eliminar el usuario ${row.name} ${row.paternalLastname} ${row.maternalLastname}?`,

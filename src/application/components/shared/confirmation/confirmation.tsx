@@ -1,12 +1,20 @@
 import { Typography, styled } from "@mui/material";
 import { Button, Dialog, Icon } from "application/components/elements";
 import { useConfirmationStore } from "application/libs/zustand";
+import { ReactNode } from "react";
 import "./styles.css";
+
+const typeMapper: Record<string, ReactNode> = {
+  error: <Icon type="closeCircle" />,
+  info: <Icon type="info" />,
+  success: <Icon type="success" />,
+  warning: <Icon type="error" />,
+};
 
 const ConfirmContent = styled("section")(({ color }) => ({
   display: "flex",
   borderTop: `8px solid var(${color})`,
-  "& div div svg": {
+  "& svg": {
     fontSize: "4rem !important",
     color: `var(${color})`,
   },
@@ -34,7 +42,7 @@ export const Confirmation = () => {
             justifyContent: "center",
             alignItems: "center",
           }}>
-          <Icon type="closeCircle" />
+          {typeMapper[type]}
         </div>
         <div style={{ padding: "1.5rem" }}>
           <Typography variant="h2" fontSize={"1.5rem"} marginBottom={"1rem"}>
