@@ -1,9 +1,10 @@
 import { ResponseData, useAxios } from "application/libs/axios";
 import { UserTable } from "./components/users-filters/dtos/responses";
-import { UserGetByFiltersRequest } from "./dtos/requests";
+import { UserGetByFiltersRequest, UserInsert } from "./dtos/requests";
 
 enum UserEndpoint {
   GET_BY_FILTERS = "Users/GetByFilters",
+  INSERT = "Users",
   DELETE = "Users",
 }
 
@@ -18,6 +19,12 @@ export const useUsersService = () => {
     return response.data;
   };
 
+  const insertRecord = async (payload: UserInsert) => {
+    const url = UserEndpoint.GET_BY_FILTERS;
+    const response = await post<ResponseData<UserTable[]>, UserInsert>(url, payload);
+    return response.data;
+  };
+
   const deleteRecord = async (id: number) => {
     const url = `${UserEndpoint.DELETE}/${id}`;
     const response = await remove<Response>(url);
@@ -26,6 +33,7 @@ export const useUsersService = () => {
 
   return {
     getByFilters,
+    insertRecord,
     deleteRecord,
   };
 };

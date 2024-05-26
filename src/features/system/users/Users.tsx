@@ -1,5 +1,5 @@
 import { MainLayout } from "application/components/layouts";
-import { UsersFilters, UsersTable } from "./components";
+import { UserModalActions, UsersFilters, UsersTable } from "./components";
 import { UsersProvider } from "./usersContext";
 
 export const Users = () => {
@@ -8,6 +8,7 @@ export const Users = () => {
       <UsersProvider>
         <UsersFilters />
         <UsersTable />
+        <UserModalActions />
       </UsersProvider>
     </MainLayout>
   );

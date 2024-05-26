@@ -1,6 +1,6 @@
 import { IconButton } from "@mui/material";
 import { GridColDef, GridRenderCellParams, GridSortItem } from "@mui/x-data-grid";
-import { Button, Icon, PaginationModel, Tooltip } from "application/components/elements";
+import { Icon, PaginationModel, Tooltip } from "application/components/elements";
 import { TableHeader } from "application/components/elements/table/components";
 import { ConfirmationProps, useConfirmationStore } from "application/libs/zustand";
 import { useEffect, useState } from "react";
@@ -137,7 +137,7 @@ export const useUsersTableHandler = () => {
       field: "actions",
       headerName: "",
       flex: 1,
-      minWidth: 150,
+      maxWidth: 150,
       editable: false,
       align: "center",
       renderHeader: () => (
