@@ -32,8 +32,8 @@ export const useUsersTableHandler = () => {
     setState({ settingsTable: { ...settingsTable, sort: newSort } } as StateProps);
   };
 
-  const updateRecord = (id: number) => {
-    console.log("lo borré: ", id);
+  const openModalActions = (id: number | null = null) => {
+    setState({ modalActionsSettings: { open: true, idUser: id } } as StateProps);
   };
 
   const deleteUser = async (id: number) => {
@@ -143,9 +143,7 @@ export const useUsersTableHandler = () => {
       renderHeader: () => (
         <div style={{ width: "100%", textAlign: "center" }}>
           <Tooltip title="Insertar usuario">
-            <IconButton
-              aria-label="update-student"
-              onClick={() => console.log("Hello World!")}>
+            <IconButton aria-label="update-student" onClick={() => openModalActions()}>
               <Icon type="addFolder" />
             </IconButton>
           </Tooltip>
@@ -154,7 +152,7 @@ export const useUsersTableHandler = () => {
       renderCell: (params: GridRenderCellParams) => (
         <>
           <Tooltip title="Actualizar usuario">
-            <IconButton aria-label="update-student" onClick={() => updateRecord(params.row.id)}>
+            <IconButton aria-label="update-student" onClick={() => openModalActions(params.row.id)}>
               <Icon type="edit" />
             </IconButton>
           </Tooltip>

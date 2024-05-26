@@ -1,2 +1,2 @@
 export * from './userGetByFiltersRequest';
-export * from './userInsert';
+export * from './userInsertUpdateRequest';

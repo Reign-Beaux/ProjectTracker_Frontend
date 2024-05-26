@@ -1,5 +1,20 @@
+import { Dialog } from "application/components/elements";
 import "./styles.css";
+import { useUsersModalActionHandler } from "./usersModalActionsHander";
+import { DialogActions, DialogContent, DialogTitle } from "@mui/material";
 
 export const UserModalActions = () => {
-  return <h1>UserModalActions Working!!!</h1>;
+  const { open } = useUsersModalActionHandler();
+
+  return <Dialog open={open}>
+    <DialogTitle>
+
+    </DialogTitle>
+    <DialogContent>
+
+    </DialogContent>
+    <DialogActions>
+      
+    </DialogActions>
+  </Dialog>;
 };

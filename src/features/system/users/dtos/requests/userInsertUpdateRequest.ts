@@ -1,11 +1,11 @@
-export interface UserInsert {
+export interface UserInsertUpdateRequest {
   name: string;
   paternalLastname: string;
   maternalLastname: string;
   email: string;
 }
 
-export const userInsertEmpty: UserInsert = {
+export const userInsertUpdateEmpty: UserInsertUpdateRequest = {
   name: "",
   paternalLastname: "",
   maternalLastname: "",

@@ -2,16 +2,21 @@ import { paginationDefault, sortDefault } from "application/components/elements"
 import { Context, ReactNode, createContext, useContext, useState } from "react";
 import { userFilterEmpty } from "./components/users-filters/dtos/requests";
 import { UserTable } from "./components/users-filters/dtos/responses";
-import { UserGetByFiltersRequest, UserInsert, userInsertEmpty } from "./dtos/requests";
+import { UserGetByFiltersRequest } from "./dtos/requests";
 
 interface ProviderProps {
   children: ReactNode;
 }
 
+interface ModalActionsSettings {
+  open: boolean;
+  idUser: number | null;
+}
+
 export interface StateProps {
   usersTable: UserTable[];
   settingsTable: UserGetByFiltersRequest;
-  userInsert: UserInsert;
+  modalActionsSettings: ModalActionsSettings;
 }
 
 interface StateContext {
@@ -26,7 +31,10 @@ const stateEmpty: StateProps = {
     pagination: paginationDefault,
     sort: sortDefault("name"),
   },
-  userInsert: { ...userInsertEmpty },
+  modalActionsSettings: {
+    open: false,
+    idUser: null,
+  },
 };
 
 const stateContextEmpty: StateContext = {
