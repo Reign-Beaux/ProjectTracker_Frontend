@@ -23,6 +23,7 @@ export const UserModalActions = () => {
             formSettings={userInsertUpdateForm}
           />
           <Input inputKey="email" inputText="Email" formSettings={userInsertUpdateForm} />
+          <Input inputKey="password" inputText="Contraseña" formSettings={userInsertUpdateForm} />
         </DialogContent>
         <DialogActions style={{ padding: "1rem", backgroundColor: "hsl(0, 0%, 90%)" }}>
           <Button

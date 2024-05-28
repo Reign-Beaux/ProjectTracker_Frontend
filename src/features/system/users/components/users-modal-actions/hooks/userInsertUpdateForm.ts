@@ -4,12 +4,14 @@ import { UserInsertUpdateRequest, userInsertUpdateEmpty } from "../../../dtos/re
 
 export interface UserInsertUpdateFormProps {
   submitUserInsertUpdateForm: (values: UserInsertUpdateRequest) => Promise<void>;
+  idUser: number;
 }
 
 interface FormValues extends UserInsertUpdateRequest {}
-
+//true: la validación está bien, false: no cumple con las validaciones
 export const useUserInsertUpdateForm = ({
   submitUserInsertUpdateForm,
+  idUser,
 }: UserInsertUpdateFormProps) => {
   const initialValues: FormValues = { ...userInsertUpdateEmpty };
 
@@ -18,6 +20,16 @@ export const useUserInsertUpdateForm = ({
     paternalLastname: Yup.string().required("En Apellido Paterno es un campo requerido."),
     maternalLastname: Yup.string().required("En Apellido Materno es un campo requerido."),
     email: Yup.string().required("En Email es un campo requerido."),
+    password: Yup.string().notRequired().test({
+      name: "password",
+      exclusive: false,
+      message: "La contraseña es un campo requerido",
+      test: (value) => {
+        console.log(value);
+        return !(idUser === 0 && value?.length === 0);
+      },
+    }
+)
   });
 
   const userInsertUpdateForm = useFormik({

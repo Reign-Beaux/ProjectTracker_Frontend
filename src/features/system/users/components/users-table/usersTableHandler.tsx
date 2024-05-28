@@ -32,7 +32,7 @@ export const useUsersTableHandler = () => {
     setState({ settingsTable: { ...settingsTable, sort: newSort } } as StateProps);
   };
 
-  const openModalActions = (id: number | null = null) => {
+  const openModalActions = (id: number = 0) => {
     setState({ modalActionsSettings: { open: true, idUser: id } } as StateProps);
   };
 

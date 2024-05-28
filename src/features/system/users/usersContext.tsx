@@ -10,7 +10,7 @@ interface ProviderProps {
 
 interface ModalActionsSettings {
   open: boolean;
-  idUser: number | null;
+  idUser: number;
 }
 
 export interface StateProps {
@@ -33,7 +33,7 @@ const stateEmpty: StateProps = {
   },
   modalActionsSettings: {
     open: false,
-    idUser: null,
+    idUser: 0,
   },
 };
 

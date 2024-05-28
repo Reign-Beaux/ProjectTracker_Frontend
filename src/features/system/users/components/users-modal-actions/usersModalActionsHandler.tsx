@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { StateProps, useUsersContext } from "../../usersContext";
 import { useUsersService } from "../../usersService";
 import { useUserInsertUpdateForm } from "./hooks";
+import { UserInsertUpdateRequest } from "../../dtos/requests";
 
 export const useUsersModalActionHandler = () => {
   const {
@@ -11,11 +12,15 @@ export const useUsersModalActionHandler = () => {
     },
     setState,
   } = useUsersContext();
-  const { getRecordById } = useUsersService();
+  const { getRecordById, insertRecord, updateRecord } = useUsersService();
 
-  const submitUserInsertUpdateForm = async () => {};
+  const submitUserInsertUpdateForm = async (values: UserInsertUpdateRequest) => {
+    if (idUser === 0) await insertRecord(values);
+    else await updateRecord(values);
+    close();
+  };
 
-  const userInsertUpdateForm = useUserInsertUpdateForm({ submitUserInsertUpdateForm });
+  const userInsertUpdateForm = useUserInsertUpdateForm({ submitUserInsertUpdateForm, idUser });
 
   const getUser = async () => {
     const response = await getRecordById(idUser!);
@@ -24,7 +29,7 @@ export const useUsersModalActionHandler = () => {
 
   const close = () =>
     setState({
-      modalActionsSettings: { ...modalActionsSettings, open: false, idUser: null },
+      modalActionsSettings: { ...modalActionsSettings, open: false, idUser: 0 },
     } as StateProps);
 
   useEffect(() => {
