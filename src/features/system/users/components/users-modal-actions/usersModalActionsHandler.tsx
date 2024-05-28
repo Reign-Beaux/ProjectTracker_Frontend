@@ -24,15 +24,13 @@ export const useUsersModalActionHandler = () => {
   };
 
   const close = () =>
-    setState({ modalActionsSettings: { ...modalActionsSettings, open: false } } as StateProps);
+    setState({
+      modalActionsSettings: { ...modalActionsSettings, open: false, idUser: null },
+    } as StateProps);
 
   useEffect(() => {
-    if (idUser !== null) getUser();
-    else userInsertUpdateForm.setValues({ ...userInsertUpdateEmpty });
-  }, [idUser]);
-
-  useEffect(() => {
-    if (!open) userInsertUpdateForm.resetForm();
+    if (open && idUser !== null) getUser();
+    else userInsertUpdateForm.resetForm();
   }, [open]);
 
   return {
