@@ -27,6 +27,7 @@ interface StateContext {
 const stateEmpty: StateProps = {
   usersTable: [],
   settingsTable: {
+    loading: false,
     usersFilter: { ...userFilterEmpty },
     pagination: paginationDefault,
     sort: sortDefault("name"),

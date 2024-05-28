@@ -6,17 +6,18 @@ import { UserInsertUpdateRequest } from "../../dtos/requests";
 
 export const useUsersModalActionHandler = () => {
   const {
-    state: {
-      modalActionsSettings: { open, idUser },
-      modalActionsSettings,
-    },
+    state: { modalActionsSettings, settingsTable },
     setState,
   } = useUsersContext();
+
+  const { open, idUser } = modalActionsSettings;
+
   const { getRecordById, insertRecord, updateRecord } = useUsersService();
 
   const submitUserInsertUpdateForm = async (values: UserInsertUpdateRequest) => {
     if (idUser === 0) await insertRecord(values);
     else await updateRecord(values);
+    setState({ settingsTable: { ...settingsTable, loading: true } } as StateProps);
     close();
   };
 

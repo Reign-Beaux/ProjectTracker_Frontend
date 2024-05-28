@@ -20,16 +20,21 @@ export const useUsersTableHandler = () => {
   const getDataSource = async () => {
     try {
       const response = await getByFilters(settingsTable);
-      setState({ usersTable: response } as StateProps);
+      setState({
+        usersTable: response,
+        settingsTable: { ...settingsTable, loading: false },
+      } as StateProps);
     } catch (error: any) {}
   };
 
   const paginationModelChange = (newPagination: PaginationModel) => {
-    setState({ settingsTable: { ...settingsTable, pagination: newPagination } } as StateProps);
+    setState({
+      settingsTable: { ...settingsTable, pagination: newPagination, loading: true },
+    } as StateProps);
   };
 
   const changeSort = (newSort: GridSortItem) => {
-    setState({ settingsTable: { ...settingsTable, sort: newSort } } as StateProps);
+    setState({ settingsTable: { ...settingsTable, sort: newSort, loading: true } } as StateProps);
   };
 
   const openModalActions = (id: number = 0) => {
@@ -169,8 +174,12 @@ export const useUsersTableHandler = () => {
   ];
 
   useEffect(() => {
-    getDataSource();
-  }, [settingsTable.pagination, settingsTable.sort]);
+    setState({ settingsTable: { ...settingsTable, loading: true } } as StateProps);
+  }, []);
+
+  useEffect(() => {
+    if (settingsTable.loading) getDataSource();
+  }, [settingsTable.loading]);
 
   return {
     dataSource: usersTable,
