@@ -1,5 +1,5 @@
 import { DialogActions, DialogContent, DialogTitle } from "@mui/material";
-import { Button, Dialog, Input } from "application/components/elements";
+import { Button, Dialog, Input, InputPassword } from "application/components/elements";
 import "./styles.css";
 import { useUsersModalActionHandler } from "./usersModalActionsHandler";
 
@@ -23,7 +23,7 @@ export const UserModalActions = () => {
             formSettings={userInsertUpdateForm}
           />
           <Input inputKey="email" inputText="Email" formSettings={userInsertUpdateForm} />
-          <Input inputKey="password" inputText="Contraseña" formSettings={userInsertUpdateForm} />
+          <InputPassword inputKey="password" inputText="Contraseña" formSettings={userInsertUpdateForm} />
         </DialogContent>
         <DialogActions style={{ padding: "1rem", backgroundColor: "hsl(0, 0%, 90%)" }}>
           <Button
