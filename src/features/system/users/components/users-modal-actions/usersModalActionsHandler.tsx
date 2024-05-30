@@ -34,7 +34,7 @@ export const useUsersModalActionHandler = () => {
     } as StateProps);
 
   useEffect(() => {
-    if (open && idUser !== null) getUser();
+    if (open && idUser !== 0) getUser();
     else userInsertUpdateForm.resetForm();
   }, [open]);
 
