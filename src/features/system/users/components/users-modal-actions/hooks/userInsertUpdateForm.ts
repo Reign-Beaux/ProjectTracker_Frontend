@@ -25,7 +25,6 @@ export const useUserInsertUpdateForm = ({
       exclusive: false,
       message: "La contraseña es un campo requerido",
       test: (value) => {
-        console.log(value);
         return !(idUser === 0 && value?.length === 0);
       },
     }
