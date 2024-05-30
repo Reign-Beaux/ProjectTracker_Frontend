@@ -1,8 +1,7 @@
+import { EMAIL_VALIDATOR, PASSWORD_VALIDATOR } from "application/regex/regex";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { UserInsertUpdateRequest, userInsertUpdateEmpty } from "../../../dtos/requests";
-import { useState } from "react";
-import { EMAIL_VALIDATOR, PASSWORD_VALIDATOR } from "application/regex/regex";
 
 export interface UserInsertUpdateFormProps {
   submitUserInsertUpdateForm: (values: UserInsertUpdateRequest) => Promise<void>;
