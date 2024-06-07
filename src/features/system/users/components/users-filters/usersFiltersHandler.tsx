@@ -7,7 +7,7 @@ import { useFiltersForm } from "./hooks";
 export const useUsersFiltersHandler = () => {
   const {
     state: {
-      settingsTable: { pagination, sort },
+      settingsTable: { loading, pagination, sort },
       settingsTable
     },
     setState,
@@ -17,7 +17,7 @@ export const useUsersFiltersHandler = () => {
   const submitForm = async (values: UserFilter) => {
     try {
       const payload: UserGetByFiltersRequest = {
-        ...{ usersFilter: values, pagination, sort },
+        ...{ loading, usersFilter: values, pagination, sort },
       };
       const response = await getByFilters(payload);
       setState({
