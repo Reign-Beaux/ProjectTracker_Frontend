@@ -1,5 +1,5 @@
 import { BaseCatalog, baseCatalogEmpty } from "application/models";
 
-export interface Roles extends BaseCatalog {}
+export interface Role extends BaseCatalog {}
 
-export const rolesEmpty: Roles = structuredClone(baseCatalogEmpty);
+export const roleEmpty: Role = structuredClone(baseCatalogEmpty);

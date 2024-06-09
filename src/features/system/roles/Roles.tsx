@@ -1,11 +1,12 @@
 import { MainLayout } from "application/components/layouts";
 import { RolesProvider } from "./rolesContext";
+import { RolesFilters } from "./components/roles-filters/rolesFilters";
 
 export const Roles = () => {
   return (
     <MainLayout title="Roles">
       <RolesProvider>
-        <h1>Roles</h1>
+        <RolesFilters />
       </RolesProvider>
     </MainLayout>
   );

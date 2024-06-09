@@ -1,15 +1,15 @@
 import { useFormik } from "formik";
 import { ObjectSchema, number, object, string } from "yup";
-import { Roles, rolesEmpty } from "../../../models/roles";
+import { Role, roleEmpty } from "../../../models/roles";
 
 interface FiltersFormProps {
-  submitForm: (values: Roles) => Promise<void>;
+  submitForm: (values: Role) => Promise<void>;
 }
 
-interface FormValues extends Roles {}
+interface FormValues extends Role {}
 
 export const useFiltersForm = ({ submitForm }: FiltersFormProps) => {
-  const initialValues: FormValues = { ...rolesEmpty };
+  const initialValues: FormValues = { ...roleEmpty };
 
   const validationSchema: ObjectSchema<FormValues> = object({
     id: number().default(0),

@@ -4,7 +4,8 @@ interface ProviderProps {
   children: ReactNode;
 }
 
-interface StateContext {}
+interface StateContext {
+}
 
 const stateContextEmpty: StateContext = {};
 
