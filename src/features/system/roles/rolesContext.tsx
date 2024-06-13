@@ -15,20 +15,28 @@ interface ProviderProps {
   children: ReactNode;
 }
 
-interface TableState {
-  dataSource: Role[];
+export interface SettingsTable {
   isLoading: boolean;
   filters: Role;
   pagination: PaginationModel;
   sortBy: GridSortItem;
 }
 
-const tableStateEmpty: TableState = {
-  dataSource: [],
+const settingsTableEmpty: SettingsTable = {
   isLoading: false,
   filters: roleEmpty,
   pagination: paginationDefault,
   sortBy: sortDefault("name"),
+};
+
+interface TableState {
+  dataSource: Role[];
+  settingsTable: SettingsTable;
+}
+
+const tableStateEmpty: TableState = {
+  dataSource: [],
+  settingsTable: { ...settingsTableEmpty },
 };
 
 interface ModalActions {
@@ -49,17 +57,17 @@ interface StateContext {
 }
 
 const stateContextEmpty: StateContext = {
-  tableState: structuredClone(tableStateEmpty),
+  tableState: { ...tableStateEmpty },
   setTableState: () => {},
-  modalActions: structuredClone(modalActionsEmpty),
+  modalActions: { ...modalActionsEmpty },
   setModalActions: () => {},
 };
 
 const RolesContext: Context<StateContext> = createContext({ ...stateContextEmpty });
 
 export const RolesProvider = ({ children }: ProviderProps) => {
-  const [tableState, setTableState] = useState(structuredClone(tableStateEmpty));
-  const [modalActions, setModalActions] = useState(structuredClone(modalActionsEmpty));
+  const [tableState, setTableState] = useState({ ...tableStateEmpty });
+  const [modalActions, setModalActions] = useState({ ...modalActionsEmpty });
 
   return (
     <RolesContext.Provider value={{ tableState, setTableState, modalActions, setModalActions }}>

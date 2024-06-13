@@ -1,5 +1,6 @@
 import { ResponseData, useAxios } from "application/libs/axios";
 import { Role } from "./models/roles";
+import { SettingsTable } from "./rolesContext";
 
 const CONTROLLER = "Roles";
 
@@ -10,8 +11,8 @@ enum Endpoint {
 export const useRolesService = () => {
   const { get, post, put, remove } = useAxios();
 
-  const getByFilters = async (payload: Role) => {
-    const response = await post<ResponseData<Role[]>, Role>(
+  const getByFilters = async (payload: SettingsTable) => {
+    const response = await post<ResponseData<Role[]>, SettingsTable>(
       `${CONTROLLER}/${Endpoint.GET_BY_FILTERS}`,
       payload
     );
