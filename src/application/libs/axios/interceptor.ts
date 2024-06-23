@@ -8,8 +8,6 @@ interface AdaptAxiosRequestConfig extends AxiosRequestConfig {
 export const useInterceptor = () => {
   const requestInterceptor = axios.interceptors.request.use(
     (config: AdaptAxiosRequestConfig) => {
-      
-      config.headers.Authorization = `Bearer ${"abcdefghijklmnopqrstuvwxyz1234567890"}`;
       return config;
     },
     (error: AxiosError) => {
