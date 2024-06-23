@@ -11,7 +11,7 @@ interface SnackbarProps {
 interface State {
   props: SnackbarProps;
   showSnackbar: (message: string, type: SnackbarType) => void;
-  closeModal: () => void;
+  closeSnackbar: () => void;
 }
 
 const snackbarPropsEmpty: SnackbarProps = {
@@ -31,7 +31,7 @@ export const useSnackbarStore = create<State>()((set) => ({
       },
     });
   },
-  closeModal: () => {
-    set({ props: { ...snackbarPropsEmpty } });
+  closeSnackbar: () => {
+    set((prev) => ({ props: { ...prev.props, open: false } }));
   },
 }));

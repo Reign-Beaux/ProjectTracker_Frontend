@@ -19,8 +19,9 @@ export const useLoginFormHandler = () => {
       localStorageSave(LocalStorageKeys.TOKEN_SESSION, response.data.token);
       navigate(PagePaths.DASHBOARD);
     } catch (error: any) {
+      debugger;
       const message = error?.response?.data?.message ?? error.message;
-      showSnackbar(message, "error");
+      showSnackbar(message, "warning");
     }
   };
 

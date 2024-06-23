@@ -1,3 +1,4 @@
+import { Snackbar } from "application/components/elements";
 import { Confirmation } from "application/components/shared";
 import "application/css/animations.css";
 import "application/css/application.css";
@@ -11,6 +12,7 @@ function App() {
     <>
       <RouterProvider router={router} />
       <Confirmation />
+      <Snackbar />
     </>
   );
 }
