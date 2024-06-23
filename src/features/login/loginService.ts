@@ -12,7 +12,8 @@ export const useLoginService = () => {
   const sendCredentials = async (payload: CredentialsRequest) => {
     const response = await post<ResponseData<AuthResponse>, CredentialsRequest>(
       LoginEndpoints.LOGIN,
-      payload
+      payload,
+      true
     );
 
     return response;

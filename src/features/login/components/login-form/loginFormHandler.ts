@@ -1,4 +1,3 @@
-import { LocalStorageKeys, encryptData, localStorageSave } from "application/helpers";
 import { PagePaths } from "application/libs/react-router-dom";
 import { useSnackbarStore } from "application/libs/zustand";
 import { useNavigate } from "react-router-dom";
@@ -13,13 +12,9 @@ export const useLoginFormHandler = () => {
 
   const submitCredentialsForm = async (values: CredentialsRequest) => {
     try {
-      const payload = { ...values };
-      payload.password = encryptData(values.password);
-      const response = await sendCredentials(payload);
-      localStorageSave(LocalStorageKeys.TOKEN_SESSION, response.data.token);
+      await sendCredentials(values);
       navigate(PagePaths.DASHBOARD);
     } catch (error: any) {
-      debugger;
       const message = error?.response?.data?.message ?? error.message;
       showSnackbar(message, "warning");
     }
