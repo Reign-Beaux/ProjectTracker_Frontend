@@ -29,7 +29,7 @@ export const useAxios = () => {
   const post = async <T, R>(endpoint: string, payload: R, withCredentials: boolean = true) => {
     const response: AxiosResponse<T> = await axios.post(`${apiUrl}/${endpoint}`, payload, {
       signal,
-      withCredentials,
+      withCredentials: withCredentials,
     });
     return response.data;
   };
