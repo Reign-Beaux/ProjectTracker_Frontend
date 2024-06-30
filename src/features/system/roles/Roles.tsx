@@ -1,5 +1,5 @@
 import { MainLayout } from "application/components/layouts";
-import { RolesFilters, RolesTable } from "./components";
+import { RolesFilters, RolesModalActions, RolesTable } from "./components";
 import { RolesProvider } from "./rolesContext";
 
 export const Roles = () => {
@@ -8,6 +8,7 @@ export const Roles = () => {
       <RolesProvider>
         <RolesFilters />
         <RolesTable />
+        <RolesModalActions />
       </RolesProvider>
     </MainLayout>
   );
