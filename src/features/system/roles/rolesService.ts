@@ -12,6 +12,7 @@ export const useRolesService = () => {
   const { get, post, put, remove } = useAxios();
 
   const getByFilters = async (payload: SettingsTable) => {
+    debugger;
     const response = await post<ResponseData<Role[]>, SettingsTable>(
       `${CONTROLLER}/${Endpoint.GET_BY_FILTERS}`,
       payload

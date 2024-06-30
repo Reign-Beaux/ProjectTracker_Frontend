@@ -10,22 +10,15 @@ import { useRolesService } from "../../rolesService";
 
 export const useRolesTableHandler = () => {
   const { initConfirmation } = useConfirmationStore();
-  const {
-    tableState: { settingsTable, dataSource },
-    setTableState,
-    setModalActions,
-  } = useRolesContext();
+  const { tableState, setTableState, setModalActions } = useRolesContext();
   const { getByFilters, deleteRecord } = useRolesService();
   const [currentColmunSort, setCurrentColmunSort] = useState("name");
+  const { settingsTable, dataSource } = tableState;
 
   const getDataSource = async () => {
     try {
       const response = await getByFilters(settingsTable);
-      setTableState((prev) => ({
-        ...prev,
-        dataSource: { ...response },
-        settingsTable: { ...settingsTable, isLoading: false },
-      }));
+      setTableState((prev) => ({ ...prev, dataSource: response }));
     } catch (error: any) {}
   };
 
@@ -129,7 +122,11 @@ export const useRolesTableHandler = () => {
   ];
 
   useEffect(() => {
-    setTableState((prev) => ({ ...prev, isLoading: true }));
+    debugger;
+    setTableState((prev) => ({
+      ...prev,
+      settingsTable: { ...prev.settingsTable, isLoading: true },
+    }));
   }, []);
 
   useEffect(() => {
