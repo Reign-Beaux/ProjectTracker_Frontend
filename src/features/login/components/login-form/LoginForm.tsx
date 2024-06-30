@@ -23,7 +23,10 @@ export const LoginForm = () => {
             inputText="Contraseña"
             formSettings={credentialsForm}
           />
-          <Button className="login-form__button" type="submit">
+          <Button
+            className="login-form__button"
+            type="submit"
+            isLoading={credentialsForm.isSubmitting}>
             Acceder
           </Button>
         </form>
